@@ -36,7 +36,7 @@
 @property(nonatomic,retain)	NSString *sex;
 @property(nonatomic,retain)	NSString *range;
 
-@property(nonatomic,retain)	NSString *intro;
+@property(nonatomic,retain)	NSString *intro; 
 @property(nonatomic,retain)	NSString *area;
 @property(nonatomic,retain)	NSString *post;
 @property(nonatomic,retain)	NSString *banji;

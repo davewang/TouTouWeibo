@@ -11,7 +11,7 @@
 @interface FindFriendByTypeViewController : BaseUIViewController<UISearchBarDelegate>
 {
     NSString *findType;
-}
+} 
 @property (nonatomic,retain) NSString *findType;
 
 @end

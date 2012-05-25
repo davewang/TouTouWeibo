@@ -16,6 +16,7 @@
 @synthesize cityListPicker;
 @synthesize cityLabel;
 @synthesize districtLabel;
+@synthesize findType;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -43,14 +44,41 @@
 
 -(void)labelTap
 {
-    VlionActionSheet* sheet = [[VlionActionSheet alloc] initWithHeight:284.0f WithSheetTitle:@" "];
-//	UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(0,50, 320, 50)];
-//	label.text = @"在这你想干啥就干啥";
-//	label.backgroundColor = [UIColor clearColor];
-//	label.textAlignment = UITextAlignmentCenter;
-//	[sheet.view addSubview:label];
-	[sheet showInView:self.view];
-	[sheet release]; 
+//    VlionActionSheet* sheet = [[VlionActionSheet alloc] initWithHeight:284.0f WithSheetTitle:@" "];
+////	UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(0,50, 320, 50)];
+////	label.text = @"在这你想干啥就干啥";
+////	label.backgroundColor = [UIColor clearColor];
+////	label.textAlignment = UITextAlignmentCenter;
+////	[sheet.view addSubview:label];
+//	[sheet showInView:self.view];
+//	[sheet release]; 
+    [pickerView show];
+}
+
+-(void)didSelectIndustryPicker:(NSArray *)_array{
+    if (_array) {
+        if ([_array count]>1) {
+//            currentoftenAddressOfProvinceId = [[_array objectAtIndex:0] objectForKey:@"id"];
+//            currentOftenAddressId = [[_array objectAtIndex:1] objectForKey:@"id"];
+            
+            FoundResultViewController *result= [[FoundResultViewController alloc]init];
+            self.hidesBottomBarWhenPushed = YES;
+            cityLabel.text=[[_array objectAtIndex:0] objectForKey:@"name"];
+            districtLabel.text=[[_array objectAtIndex:1] objectForKey:@"name"];
+            result.proviceName=[[_array objectAtIndex:0] objectForKey:@"name"];
+            result.cityName=[[_array objectAtIndex:1] objectForKey:@"name"];
+            result.findType=findType;
+            [self.navigationController pushViewController:result animated:YES];
+            self.hidesBottomBarWhenPushed = NO;
+            [result release];
+
+//            currentRegion = [[NSString stringWithFormat:@"%@ %@",[[_array objectAtIndex:0] objectForKey:@"name"],[[_array objectAtIndex:1] objectForKey:@"name"]]retain];
+//            NSLog(@"currentRegion = %@",currentRegion);
+//            NSLog(@"currentoftenAddressOfProvinceId = %@ ,currentOftenAddressId = %@",currentoftenAddressOfProvinceId,currentOftenAddressId);
+//            [tableView reloadData];
+        };
+    }
+    NSLog(@"_array = %@",_array);
 }
 
 #pragma mark - View lifecycle
@@ -87,6 +115,8 @@
     [districtLabel addGestureRecognizer:tapGesture1];
     [self.view addSubview:districtLabel];
     [self leftBackBtnWithAction:@selector(actionBack)];
+    pickerView = [[IndustryPickerView alloc] initWithFrame:CGRectMake(0, 0, 320, 480)];
+    pickerView.industryDelegate=self;
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  

@@ -950,6 +950,7 @@
 		55EC133314FE62C400EB13D5 /* cellBackgroud.png in Resources */ = {isa = PBXBuildFile; fileRef = 55EC133214FE62A100EB13D5 /* cellBackgroud.png */; };
 		55EC133A14FE7F0900EB13D5 /* WeiBoListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 55EC133914FE7F0900EB13D5 /* WeiBoListModel.m */; };
 		55EC133D14FE7F3400EB13D5 /* WeiBoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 55EC133C14FE7F3400EB13D5 /* WeiBoModel.m */; };
+		55F0C228156F3664002C7D0E /* ShakeHideImg_women@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 55F0C227156F3664002C7D0E /* ShakeHideImg_women@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -2156,6 +2157,7 @@
 		55EC133914FE7F0900EB13D5 /* WeiBoListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeiBoListModel.m; sourceTree = "<group>"; };
 		55EC133B14FE7F3400EB13D5 /* WeiBoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiBoModel.h; sourceTree = "<group>"; };
 		55EC133C14FE7F3400EB13D5 /* WeiBoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeiBoModel.m; sourceTree = "<group>"; };
+		55F0C227156F3664002C7D0E /* ShakeHideImg_women@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ShakeHideImg_women@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -3739,6 +3741,7 @@
 		55E58C13156C8BE00037EE7A /* FindFriends */ = {
 			isa = PBXGroup;
 			children = (
+				55F0C227156F3664002C7D0E /* ShakeHideImg_women@2x.png */,
 				55E58C49156C8CD30037EE7A /* AccelerometerHelper.h */,
 				55E58C4A156C8CD30037EE7A /* AccelerometerHelper.m */,
 				55E58C46156C8C5F0037EE7A /* DrawerView.h */,
@@ -4505,6 +4508,7 @@
 				55E58C42156C8BE00037EE7A /* ShakeFrinedsViewController.xib in Resources */,
 				55E58C43156C8BE00037EE7A /* shakeup.png in Resources */,
 				55E58C4D156CC30D0037EE7A /* ttttt.xib in Resources */,
+				55F0C228156F3664002C7D0E /* ShakeHideImg_women@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

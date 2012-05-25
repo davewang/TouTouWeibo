@@ -19,7 +19,7 @@
     NSString *msnNo;
     NSString *phone;
     NSString *introduction;
-    NSString *companyName;
+    NSString *companyName; 
     NSString *companyAddress;
     NSString *companyTel;
     NSString *userPhoto;

@@ -24,6 +24,8 @@
     NSString * type;
     NSString * rad;
     CLLocationManager * locationManager;
+     NSString * friendType;
+     NSString * searchText;
 }
 @property(nonatomic,retain)MKMapView * map;
 @property(nonatomic,retain)NSMutableArray * infromationArr;
@@ -31,4 +33,7 @@
 @property(nonatomic,retain)MKPinAnnotationView * mapPinView;
 
 -(void)connectForLocation;//With:(NSString *)latStr And:(NSString *)lonStr And:(NSString *)radius And:(NSString *)types;
+@property(nonatomic,retain)NSString * friendType;
+@property(nonatomic,retain)NSString * searchText;
+
 @end

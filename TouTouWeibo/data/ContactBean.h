@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "CommonFriendBean.h"
 @interface ContactBean : NSObject
 {
     NSString *uid;
@@ -26,4 +26,6 @@
 @property(nonatomic,retain)  NSString *telphone;
 
 +(ContactBean*)ContactBeanWithNSDictionary:(NSDictionary *)_dic;
+
++(ContactBean*)ContactBeanWithCommonFriendBean:(CommonFriendBean *)_dic;
 @end

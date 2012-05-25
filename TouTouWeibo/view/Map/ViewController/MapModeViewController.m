@@ -94,8 +94,22 @@
 //    NSLog(@"askStr===:%@",askStr);
 //    NSURL * askUrl = [NSURL URLWithString:askStr];
   //  +(MapDataList*)loadContactForMapWithUserId:(NSString*)userId andCityId:(NSString*)cityId
-  MapDataList *list = [CommonUtils loadContactForMapWithUserId:[GlobalInfo sharedGlobalInfo].userId andCityId:nil];
+  //MapDataList *list = [CommonUtils loadContactForMapWithUserId:[GlobalInfo sharedGlobalInfo].userId andCityId:nil];
+    MapDataList *list=[[MapDataList alloc]init];
+    if (!friendType) {
+        list = [CommonUtils loadContactForMapWithUserId:[GlobalInfo sharedGlobalInfo].userId andCityId:nil];
+    }else if([friendType isEqualToString:@"city"]){
+        
+    }
+    else{
+        if ([friendType isEqualToString:@"name"]) {
+            list = [CommonUtils loadFriendMapObjectWithFriendType:searchText cityId:nil friendType:@"0"];
+        }else if([friendType isEqualToString:@"class"]){
+            list = [CommonUtils loadFriendMapObjectWithFriendType:searchText cityId:nil friendType:@"1"];
+        } 
+    }
     
+
     self.infromationArr = list.mapList;
     NSMutableArray * array = [[NSMutableArray alloc]init];
     for (int i = 0; i<[infromationArr count]; i++) {

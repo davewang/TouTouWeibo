@@ -12,19 +12,35 @@
 @synthesize commonFriendList;
 @synthesize err;
 @synthesize pageInfo;
-+(CommonFriendListBean*)CommonFriendListBeanWithNSDictionary:(NSDictionary*)_dic{
 
+@synthesize msg;
++(CommonFriendListBean*)CommonFriendListBeanWithNSDictionary:(NSDictionary*)_dic{
+    
     CommonFriendListBean *commonFriend =[[CommonFriendListBean alloc] init];
     
     commonFriend.err = [_dic objectForKey:@"err"];
+    commonFriend.msg = [_dic objectForKey:@"msg"];
     commonFriend.commonFriendList = [[NSMutableArray alloc] initWithCapacity:2];
     for(NSDictionary *_tDic in [_dic objectForKey:@"userList"] )
     { 
         [commonFriend.commonFriendList  addObject:[CommonFriendBean CommonFriendBeanWithNSDictionary:_tDic]];
     }
     commonFriend.pageInfo = [Page PageWithNSDictionary:  [_dic  objectForKey:@"pageInfo"]];
-    
-    
-    return nil;
+    return commonFriend;
 }
+//+(CommonFriendListBean*)CommonFriendListBeanWithNSDictionary:(NSDictionary*)_dic{
+//
+//    CommonFriendListBean *commonFriend =[[CommonFriendListBean alloc] init];
+//    
+//    commonFriend.err = [_dic objectForKey:@"err"];
+//    commonFriend.commonFriendList = [[NSMutableArray alloc] initWithCapacity:2];
+//    for(NSDictionary *_tDic in [_dic objectForKey:@"userList"] )
+//    { 
+//        [commonFriend.commonFriendList  addObject:[CommonFriendBean CommonFriendBeanWithNSDictionary:_tDic]];
+//    }
+//    commonFriend.pageInfo = [Page PageWithNSDictionary:  [_dic  objectForKey:@"pageInfo"]];
+//    
+//    
+//    return commonFriend;
+//}
 @end

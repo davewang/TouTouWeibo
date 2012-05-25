@@ -835,6 +835,192 @@ return list;
     return b;
  
 }
+
++(NSString *)saveShakePostionUserId:(NSString*)userId WithLongitude:(NSString *)log WithLatitude:(NSString *) lat{
+    
+    NSURL *tempurl = [[[ NSURL alloc ] initWithString:SHAKE_LOCATION_INFO_URL] autorelease ];
+    
+    ASIFormDataRequest *request = [[[ ASIFormDataRequest alloc ] initWithURL : tempurl ] autorelease ];
+    
+    [request setPostValue:[NSString stringWithFormat:@"%@",userId] forKey:@"userId"];
+    [request setPostValue:[NSString stringWithFormat:@"%@",log] forKey:@"longitude"];
+    [request setPostValue:[NSString stringWithFormat:@"%@",lat] forKey:@"latitude"];
+    [request setUseCookiePersistence : YES ];
+    
+    [request startSynchronous ];
+    NSString *html = [[[NSString alloc]initWithData:[request responseData] encoding:NSUTF8StringEncoding]autorelease];
+    NSData *jsonData = [html dataUsingEncoding:NSUTF8StringEncoding];
+    
+    NSLog(@">>>>>>>>>>>>>>>>>>loadContactListBean %@",html);
+    NSError *error = nil;
+    NSDictionary *dictionary = [[CJSONDeserializer deserializer] deserializeAsDictionary:jsonData error:&error];
+    NSString * backStr=nil;
+    if (dictionary) {
+        backStr = [NSString stringWithFormat:@"%@",[dictionary objectForKey:@"msg"]];
+    }
+    return backStr;
+} 
++(NSString *)deleteShakeHistoryUserId:(NSString*)userId{
+    
+    NSURL *tempurl = [[[ NSURL alloc ] initWithString:SHAKE_Delete_INFO_URL] autorelease ];
+    
+    ASIFormDataRequest *request = [[[ ASIFormDataRequest alloc ] initWithURL : tempurl ] autorelease ];
+    
+    [request setPostValue:[NSString stringWithFormat:@"%@",userId] forKey:@"userId"];
+    [request setUseCookiePersistence : YES ];
+    [request startSynchronous ];
+    NSString *html = [[[NSString alloc]initWithData:[request responseData] encoding:NSUTF8StringEncoding]autorelease];
+    NSData *jsonData = [html dataUsingEncoding:NSUTF8StringEncoding];
+    
+    NSLog(@">>>>>>>>>>>>>>>>>>loadContactListBean %@",html);
+    NSError *error = nil;
+    NSDictionary *dictionary = [[CJSONDeserializer deserializer] deserializeAsDictionary:jsonData error:&error];
+    NSString * backStr=nil;
+    if (dictionary) {
+        backStr = [NSString stringWithFormat:@"%@",[dictionary objectForKey:@"msg"]];
+    }
+    return backStr;
+}
+
++(ShakeListBean *)shakeHistoryWithUserId:(NSString*)userId {
+    
+    NSURL *tempurl = [[[ NSURL alloc ] initWithString:SHAKE_HISTORY_INFO_URL] autorelease ];
+    
+    ASIFormDataRequest *request = [[[ ASIFormDataRequest alloc ] initWithURL : tempurl ] autorelease ];
+    
+    [request setPostValue:[NSString stringWithFormat:@"%@",userId] forKey:@"userId"];
+    [request setUseCookiePersistence : YES ];
+    
+    [request startSynchronous ];
+    NSString *html = [[[NSString alloc]initWithData:[request responseData] encoding:NSUTF8StringEncoding]autorelease];
+    NSData *jsonData = [html dataUsingEncoding:NSUTF8StringEncoding];
+    
+    NSLog(@">>>>>>>>>>>>>>>>>>loadContactListBean %@",html);
+    NSError *error = nil;
+    NSDictionary *dictionary = [[CJSONDeserializer deserializer] deserializeAsDictionary:jsonData error:&error];
+    ShakeListBean *list = [ShakeListBean ShakeListBeanWithNSDictionary:dictionary];
+    return list;
+}
++(ShakeListBean*)loadShakePersonListBeanUserId:(NSString*)userId {
+    
+    NSURL *tempurl = [[[ NSURL alloc ] initWithString:SHAKE_SHAKE_INFO_URL] autorelease ];
+    
+    ASIFormDataRequest *request = [[[ ASIFormDataRequest alloc ] initWithURL : tempurl ] autorelease ];
+    
+    [request setPostValue:[NSString stringWithFormat:@"%@",userId] forKey:@"userId"];
+    [request setUseCookiePersistence : YES ];
+    
+    [request startSynchronous ];
+    NSString *html = [[[NSString alloc]initWithData:[request responseData] encoding:NSUTF8StringEncoding]autorelease];
+    NSData *jsonData = [html dataUsingEncoding:NSUTF8StringEncoding];
+    
+    NSLog(@">>>>>>>>>>>>>>>>>>loadContactListBean %@",html);
+    NSError *error = nil;
+    NSDictionary *dictionary = [[CJSONDeserializer deserializer] deserializeAsDictionary:jsonData error:&error];
+    
+    ShakeListBean *list = [ShakeListBean ShakeListBeanWithNSDictionary:dictionary];
+    
+    
+    return list;
+    
+} 
+
+
++(CommonFriendListBean*)loadFriendObjectWithFriendType:(NSString *)searchText cityId:(NSString *)cityId pageNo:(NSString*)pageNo pageSize:(NSString *)pageSize friendType:(NSString*)friendType {
+    NSURL *tempurl=[[NSURL alloc]init];
+    if ([friendType isEqualToString:@"2"]) {
+        tempurl=[NSURL URLWithString:CONTACTS_FRIENTBYCITY_INFO_URL];
+    }
+    else{
+        tempurl=[NSURL URLWithString:CONTACTS_FRIENTTYPE_INFO_URL];
+    }
+    //    NSURL *tempurl = [[[ NSURL alloc ] initWithString:CONTACTS_FRIENTTYPE_INFO_URL  ] autorelease ];
+    ASIFormDataRequest *request = [[[ ASIFormDataRequest alloc ] initWithURL : tempurl ] autorelease ];
+    
+    [request setPostValue:[GlobalInfo sharedGlobalInfo].userId forKey:@"userId"];
+    if ([friendType isEqualToString:@"2"]) {
+        [request setPostValue:searchText forKey:@"provinceName"];
+        [request setPostValue:cityId forKey:@"cityName"];
+    }
+    else{
+        [request setPostValue:searchText forKey:@"searchText"];
+        [request setPostValue:friendType forKey:@"findType"];
+    }
+    
+    //    [request setPostValue:cityId forKey:@"cityId"];
+    [request setPostValue:pageNo forKey:@"pageNo"];
+    [request setPostValue:pageSize forKey:@"pageSize"];
+    
+    [request setUseCookiePersistence : YES ];
+    [request startSynchronous ];
+    NSString *html = [[[NSString alloc]initWithData:[request responseData] encoding:NSUTF8StringEncoding]autorelease];
+    
+    NSData *jsonData = [html dataUsingEncoding:NSUTF8StringEncoding];
+    
+    NSError *error;
+    NSDictionary *dictionary = [[CJSONDeserializer deserializer] deserializeAsDictionary:jsonData error:&error];
+    
+    NSLog(@"dictionary = %@",dictionary);
+    CommonFriendListBean *list = [CommonFriendListBean CommonFriendListBeanWithNSDictionary:dictionary];
+    // FriendList *b = [FriendList FriendListWithNSDictionary:dictionary];
+    return list;
+    
+}
+
++(MapDataList*)loadFriendMapObjectWithFriendType:(NSString *)searchText cityId:(NSString *)cityId friendType:(NSString*)friendType {
+    NSURL *tempurl=[[NSURL alloc]init];
+    tempurl=[NSURL URLWithString:CONTACTS_FRIENTMAPTYPE_INFO_URL];
+    ASIFormDataRequest *request = [[[ ASIFormDataRequest alloc ] initWithURL : tempurl ] autorelease ];
+    
+    [request setPostValue:[GlobalInfo sharedGlobalInfo].userId forKey:@"userId"];
+    //    [request setPostValue:cityId forKey:@"cityId"];
+    if (cityId) {
+        [request setPostValue:cityId forKey:@"cityId"];
+    }
+    [request setPostValue:searchText forKey:@"searchText"];
+    [request setPostValue:friendType forKey:@"findType"];
+    
+    [request setUseCookiePersistence : YES ];
+    [request startSynchronous ];
+    NSString *html = [[[NSString alloc]initWithData:[request responseData] encoding:NSUTF8StringEncoding]autorelease];
+    
+    NSData *jsonData = [html dataUsingEncoding:NSUTF8StringEncoding];
+    
+    NSError *error;
+    NSDictionary *dictionary = [[CJSONDeserializer deserializer] deserializeAsDictionary:jsonData error:&error];
+    
+    NSLog(@"dictionary = %@",dictionary);
+    MapDataList *list = [MapDataList MapDataListWithNSDictionary:dictionary];
+    return list;
+}
+
++(CommonFriendListBean*)loadFriendObjectWithCity:(NSString *)provinceName cityId:(NSString *)cityId pageNo:(NSString *)pageNo pageSize:(NSString *)pageSize friendType:(NSString *)friendType{
+    NSURL *tempurl=[[NSURL alloc]init];
+    tempurl=[NSURL URLWithString:CONTACTS_FRIENTLISTBYCITY_INFO_URL];
+    ASIFormDataRequest *request = [[[ ASIFormDataRequest alloc ] initWithURL : tempurl ] autorelease ];
+    
+    [request setPostValue:[GlobalInfo sharedGlobalInfo].userId forKey:@"userId"];
+    [request setPostValue:provinceName forKey:@"provinceName"];
+    [request setPostValue:cityId forKey:@"cityId"];
+    [request setPostValue:pageNo forKey:@"pageNo"];
+    [request setPostValue:pageSize forKey:@"pageSize"];
+    [request setPostValue:friendType forKey:@"findType"];
+    
+    [request setUseCookiePersistence : YES ];
+    [request startSynchronous ];
+    NSString *html = [[[NSString alloc]initWithData:[request responseData] encoding:NSUTF8StringEncoding]autorelease];
+    
+    NSData *jsonData = [html dataUsingEncoding:NSUTF8StringEncoding];
+    
+    NSError *error;
+    NSDictionary *dictionary = [[CJSONDeserializer deserializer] deserializeAsDictionary:jsonData error:&error];
+    
+    NSLog(@"dictionary = %@",dictionary);
+    CommonFriendListBean *list = [CommonFriendListBean CommonFriendListBeanWithNSDictionary:dictionary];
+    return list;
+}
+
+
 /*
  •	获取验证码输入参数：
  D_icode（手机号）

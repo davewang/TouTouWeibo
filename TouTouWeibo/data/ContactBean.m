@@ -25,5 +25,21 @@
     
     return letter;
 }
++(ContactBean*)ContactBeanWithCommonFriendBean:(CommonFriendBean *)_dic
+{
+    
+    
+    ContactBean *letter = [[ContactBean alloc] init];
+    
+    
+    letter.uid = _dic.userId;//[_dic objectForKey:@"userId" ]; //jsonObject.getString("headPhoto");
+    letter.sex = _dic.sex;//[_dic objectForKey:@"sex" ];//jsonObject.getString("postTime");
+    letter.name = _dic.userName;//[_dic objectForKey:@"userName" ];//jsonObject.getString("postTitle");
+    letter.image = _dic.userPhoto;//[_dic objectForKey:@"headPhoto" ]; //jsonObject.getString("headPhoto");
+    letter.telphone = _dic.telphone;//[_dic objectForKey:@"telphone" ];//jsonObject.getString("postTime");
+    letter.banji = _dic.banji;//[_dic objectForKey:@"class" ];//jsonObject.getString("postTitle");
+    return letter;
+    
+}
 
 @end

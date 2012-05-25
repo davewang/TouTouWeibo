@@ -7,7 +7,7 @@
 //
 
 #import "ShakeListBean.h"
-#import "ShakeBean.h"
+#import "ShakeBean.h" 
 @implementation ShakeListBean
 @synthesize  err,shakeList,pageInfo;
 

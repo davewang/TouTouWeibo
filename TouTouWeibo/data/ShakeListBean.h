@@ -11,7 +11,7 @@
 @interface ShakeListBean : NSObject
 {
     
-	NSString *err;
+	NSString *err; 
     NSMutableArray *shakeList;
     Page *pageInfo;
 }

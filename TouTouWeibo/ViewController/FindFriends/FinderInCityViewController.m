@@ -14,7 +14,7 @@
 @synthesize _findFriendsVCList;
 
 
-
+ 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -54,6 +54,7 @@
   
     imageNames = [[NSArray alloc] initWithObjects:@"lbs_nearbypeople_popuphint_location_icon.png",@"settings_accounts_icon.png",@"settings_accounts_icon.png",@"settings_browsemode_icon.png",@"settings_about_icon.png",@"settings_signout_icon.png", nil]; 
         [self leftBackBtnWithAction:@selector(actionBack)];
+    
     // selectd 0 178 238
     // self.tableView.separatorColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"group_picker_cell_separator.png"]];
     // self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
@@ -102,7 +103,14 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-        [self.tableView  deselectRowAtIndexPath:indexPath animated:YES];
+    FoundResultViewController *selectVC=[[FoundResultViewController alloc]init];
+    self.hidesBottomBarWhenPushed = YES;
+    selectVC.findType=[NSString stringWithFormat:@"%d",indexPath.row];
+    NSLog(@"selectVC.findType = %@",selectVC.findType);
+    selectVC.proviceName=@"北京";
+    selectVC.cityName=@"昌平";
+    [self.navigationController pushViewController:selectVC animated:YES];
+//        [self.tableView  deselectRowAtIndexPath:indexPath animated:YES];
    
 }
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

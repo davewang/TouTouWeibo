@@ -15,7 +15,7 @@
     NSArray *imageNames;
     NSMutableArray *_findFriendsVCList1;
     NSMutableArray *_findFriendsVCList2;
-}
+} 
 
 @property(retain,nonatomic) NSArray *_findFriendsVCList1;
 @property(retain,nonatomic) NSArray *_findFriendsVCList2;

@@ -14,7 +14,7 @@
 #import "WeiBoModel.h"
 @interface AppDelegate : UIResponder <UIApplicationDelegate,NewDirectMessageViewControllerDelegate> {
   
-    BOOL connectionStatus;
+    BOOL connectionStatus; 
     DWUITabBarController *customTabBar;
     UIViewController *rootViewController;
     UINavigationController *homeViewController;

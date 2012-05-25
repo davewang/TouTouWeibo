@@ -123,7 +123,7 @@
         cell.imageView.image = [UIImage imageNamed:[imageNames objectAtIndex:indexPath.row]];
         cell.textLabel.text = [_findFriendsVCList2 objectAtIndex:row];
          //return cell;
-    }
+    } 
     cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
  return cell;
 }

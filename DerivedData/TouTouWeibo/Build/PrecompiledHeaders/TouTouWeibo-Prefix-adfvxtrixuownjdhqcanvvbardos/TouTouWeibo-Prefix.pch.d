@@ -31,6 +31,7 @@ dependencies: \
   /Users/Dave/dev/homework/git/TouTouWeibo/TouTouWeibo/data/ContactListBean.h \
   /Users/Dave/dev/homework/git/TouTouWeibo/TouTouWeibo/view/Map/Data/MapData.h \
   /Users/Dave/dev/homework/git/TouTouWeibo/TouTouWeibo/data/MapDataList.h \
+  /Users/Dave/dev/homework/git/TouTouWeibo/TouTouWeibo/data/ShakeListBean.h \
   /Users/Dave/dev/homework/git/TouTouWeibo/TouTouWeibo/AppDelegate.h \
   /Users/Dave/dev/homework/git/TouTouWeibo/TouTouWeibo/view/tabbar/DWUITabBarController.h \
   /Users/Dave/dev/homework/git/TouTouWeibo/TouTouWeibo/view/UserProfile/UserProfileViewController.h \

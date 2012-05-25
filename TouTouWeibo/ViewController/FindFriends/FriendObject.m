@@ -18,7 +18,7 @@
 @synthesize companyName;
 @synthesize introduction;
 @synthesize companyAddress;
-@synthesize userName;
+@synthesize userName; 
 @synthesize userSex;
 @synthesize userCity;
 @synthesize userPhoto;

@@ -23,6 +23,8 @@
 #import "MapData.h"
 #import "MapDataList.h"
 #import "FriendObject.h"
+#import "ShakeListBean.h"
+#import "CommonFriendListBean.h"
 @class ReplyList;
 @interface CommonUtils : NSObject
 {
@@ -83,5 +85,19 @@
 +(MapDataList*)loadContactForMapWithUserId:(NSString*)userId andCityId:(NSString*)cityId;
 
 +(FriendObject*)loadFriendObjectWithUserId:(NSString*)userId;
-    
+
++(NSString *)saveShakePostionUserId:(NSString*)userId WithLongitude:(NSString *)log WithLatitude:(NSString *) lat;
++(ShakeListBean*)loadShakePersonListBeanUserId:(NSString*)userId;
++(ShakeListBean *)shakeHistoryWithUserId:(NSString*)userId;
++(NSString *)deleteShakeHistoryUserId:(NSString*)userId;
+
+
+
+
++(CommonFriendListBean*)loadFriendObjectWithFriendType:(NSString *)searchText cityId:(NSString *)cityId pageNo:(NSString*)pageNo pageSize:(NSString *)pageSize friendType:(NSString*)friendType;
+
++(MapDataList*)loadFriendMapObjectWithFriendType:(NSString *)searchText cityId:(NSString *)cityId friendType:(NSString*)friendType;
+
++(CommonFriendListBean*)loadFriendObjectWithCity:(NSString *)provinceName cityId:(NSString *)cityId pageNo:(NSString*)pageNo pageSize:(NSString *)pageSize friendType:(NSString*)friendType;
+
 @end

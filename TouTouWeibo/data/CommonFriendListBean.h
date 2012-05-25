@@ -10,13 +10,14 @@
 
 @interface CommonFriendListBean : NSObject
 {
-NSString *err;
-NSMutableArray *commonFriendList;
-Page *pageInfo;
+    NSString *err;
+    NSString *msg;
+    NSMutableArray *commonFriendList;
+    Page *pageInfo;
 }
 @property(retain,nonatomic)NSString *err;
+@property(retain,nonatomic)NSString *msg;
 @property(retain,nonatomic)NSMutableArray *commonFriendList;
 @property(retain,nonatomic)Page *pageInfo;
 +(CommonFriendListBean*)CommonFriendListBeanWithNSDictionary:(NSDictionary*)_dic;
-
 @end

@@ -17,7 +17,7 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
+    if (self) { 
         // Custom initialization
     }
     return self;
@@ -40,6 +40,7 @@
     } else if ([findType isEqualToString:@"city"]) {
         self.title=@"按城市查找";
     }
+     [self setViewControllerTitle:self.title];
     UIButton *backButton = [UIButton buttonWithType:UIButtonTypeCustom];  
 	backButton.frame = CGRectMake(0.0, 0.0, 40.0, 27.0);  
 	[backButton setImage:[UIImage imageNamed:@"navigationbar_back.png"] forState:UIControlStateNormal];  

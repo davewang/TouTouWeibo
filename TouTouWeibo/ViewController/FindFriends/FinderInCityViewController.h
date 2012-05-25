@@ -7,12 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FoundResultViewController.h"
 
 @interface FinderInCityViewController : BaseUIViewController<UITableViewDelegate,UITableViewDataSource>{
 
        UITableView *_tableView;
        NSArray *imageNames;
        NSMutableArray *_findFriendsVCList;
+     
 }
 
 @property(retain,nonatomic) NSArray *_findFriendsVCList;

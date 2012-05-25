@@ -7,14 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "IndustryPickerView.h"
+#import "FoundResultViewController.h"
 
-@interface SelectCityViewController : BaseUIViewController<UIActionSheetDelegate>
+@interface SelectCityViewController : BaseUIViewController<UIActionSheetDelegate,IndustryPickerViewDelegate>
 {
     UIPickerView *cityListPicker;
     UILabel *cityLabel;
     UILabel *districtLabel;
+    NSString *findType;
+    IndustryPickerView *pickerView;
 }
 @property(retain,nonatomic)UIPickerView *cityListPicker;
 @property(retain,nonatomic)UILabel *cityLabel;
 @property(retain,nonatomic)UILabel *districtLabel;
+@property(retain,nonatomic)NSString *findType;
 @end

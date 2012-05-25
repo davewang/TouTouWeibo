@@ -76,7 +76,15 @@
 
 #define CONTACTS_CARD_INFO_URL @ "http://119.57.54.48/friend.do?act=phoneUserCard"
 
+#define SHAKE_LOCATION_INFO_URL @ "http://119.57.54.48/friend.do?act=phoneSavePosition"
+#define SHAKE_SHAKE_INFO_URL @ "http://119.57.54.48/friend.do?act=phoneCurrentShakingMenList"
+#define SHAKE_HISTORY_INFO_URL @ "http://119.57.54.48/friend.do?act=phoneBeforByShakingMenList"
+#define SHAKE_Delete_INFO_URL @ "http://119.57.54.48/friend.do?act=phoneBeforByShakingMenList"
 
+#define CONTACTS_FRIENTTYPE_INFO_URL @ "http://119.57.54.48/friend.do?act=phoneCommonFindFriend"
+#define CONTACTS_FRIENTBYCITY_INFO_URL @ "http://119.57.54.48/friend.do?act=phoneCommonFindFriendByCity"
+#define CONTACTS_FRIENTMAPTYPE_INFO_URL @ "http://119.57.54.48/friend.do?act=phoneCommonFindMapByCity"
+#define CONTACTS_FRIENTLISTBYCITY_INFO_URL @ "http://119.57.54.48/friend.do?act=phoneFriendListByCity"
 
 
 //•	点击获取验证码URL：registeruser.do?act=sendCode
