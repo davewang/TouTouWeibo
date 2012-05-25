@@ -1,0 +1,86 @@
+//
+// Prefix header for all source files of the 'TouTouWeibo' target in the 'TouTouWeibo' project
+//
+
+
+
+//
+//registeruser.do?act=updatePassword&F_old_pwd=111&F_new_pwd=111&F_check_pwd=111
+//4.2 输入参数
+//F_old_pwd：原密码
+//F_new_pwd：新密码
+//F_check_pwd：确认新密码
+
+
+//attention.do?act=phoneMyFan&pageNo=1
+
+#import <Availability.h>
+
+#ifndef __IPHONE_3_0
+#warning "This project uses features only available in iOS SDK 3.0 and later."
+#endif
+
+#ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+    #import <Foundation/Foundation.h>
+#import "CommonUtils.h"
+#import "AppDelegate.h"
+#import "BaseUIViewController.h"
+#import "GlobalInfo.h"
+#import "CostomNavgationBar.h"
+#import "GlobalInfo.h"
+#import "ContactListBean.h"
+#import "ContactBean.h"
+
+#define SERVER_URL @ "http://119.57.54.48/"
+#define LOGIN_URL @ "http://119.57.54.48/login.do?act=login"
+#define WEIBOLIST_URL @ "http://119.57.54.48/microblogging.do?act=phoneWeiboList"
+#define USER_URL @ "http://119.57.54.48/attention.do?act=phoneGetUserInfo"
+
+#define ATTENTION_URL @ "http://119.57.54.48/attention.do?act=phoneMyattention"
+#define FAN_URL @ "http://119.57.54.48/attention.do?act=phoneMyFan"
+//#define WEIBO_URL @ "http://119.57.54.48microblogging.do?act=phoneReflush"
+#define WEIBO_URL @ "http://119.57.54.48/microblogging.do?act=getPersonalActionLogById"
+
+#define REPLY_URL @ "http://119.57.54.48/microblogging.do?act=replyofuser"
+ 
+
+#define LETTER_URL @ "http://119.57.54.48/microblogging.do?act=getMyLetterDetail"
+#define DIRECT_MESSAGE_URL @ "http://119.57.54.48/microblogging.do?act=addweibo"
+#define FRIENDLIST_URL @ "http://119.57.54.48/friend.do?act=phoneGetMyFriend"
+
+#define GROUPLIST_URL @ "http://119.57.54.48/microblogging.do?act=phoneGetMyClass"
+#define SEND_WEIBO_URL @ "http://119.57.54.48/microblogging.do?act=savePhoneWeibo"   
+
+#define REPLY_WEIBO_URL @ "http://119.57.54.48/microblogging.do?act=savePhoneReply"  
+
+#define DEL_WEIBO_URL @ "http://119.57.54.48/microblogging.do?act=phoneDel"  
+
+
+#define SHARE_WEIBO_URL @ "http://119.57.54.48/share.do?act=sendShareToAllFriend"  
+
+
+#define UNFOLLOW_URL @ "http://119.57.54.48/friend.do?act=delattention"
+//&F_uid=1
+
+#define FOLLOW_URL @ "http://119.57.54.48/friend.do?act=addattention"
+//&F_uid=1
+#define UPDATAPASSWORD_URL @ "http://119.57.54.48/registeruser.do?act=updatePassword"
+#define REGISTER_USER_URL @ "http://119.57.54.48/registeruser.do?act=registerUser"
+#define REGISTER_SENDCODE_URL @ "http://119.57.54.48/registeruser.do?act=sendCode"
+
+#define UPDATA_USER_INFO_URL @ "http://119.57.54.48/microblogging.do?act=updateUserInfo"
+
+#define CONTACTS_INFO_URL @ "http://119.57.54.48/friend.do?act=phoneContactsList"
+#define CONTACTS_MAP_INFO_URL @ "http://119.57.54.48/friend.do?act=phoneContactsMapByCity"
+
+#define CONTACTS_CARD_INFO_URL @ "http://119.57.54.48/friend.do?act=phoneUserCard"
+
+
+
+
+//•	点击获取验证码URL：registeruser.do?act=sendCode
+//	点击注册URL：registeruser.do?act=registerUser
+
+
+#endif
