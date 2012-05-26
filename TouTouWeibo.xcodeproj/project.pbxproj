@@ -244,6 +244,8 @@
 		55C59B4B1561D5E600712EC0 /* UserEditeDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C59B491561D5E000712EC0 /* UserEditeDetailViewController.m */; };
 		55C59B4C1561D5E600712EC0 /* UserEditeDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55C59B4A1561D5E200712EC0 /* UserEditeDetailViewController.xib */; };
 		55C9E571156E84F600819F93 /* AccountInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C9E570156E84F600819F93 /* AccountInfo.m */; };
+		55CD12171570C50000F77069 /* ContactRootUIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55CD12151570C50000F77069 /* ContactRootUIViewController.m */; };
+		55CD12181570C50000F77069 /* ContactRootUIViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55CD12161570C50000F77069 /* ContactRootUIViewController.xib */; };
 		55D1484F1501D9D000187A7F /* TweetAnimationImageFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 55D148241501D9D000187A7F /* TweetAnimationImageFrame.m */; };
 		55D148501501D9D000187A7F /* TweetAnimationImageNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 55D148261501D9D000187A7F /* TweetAnimationImageNode.m */; };
 		55D148511501D9D000187A7F /* TweetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 55D148281501D9D000187A7F /* TweetCell.m */; };
@@ -1324,6 +1326,9 @@
 		55C59B4A1561D5E200712EC0 /* UserEditeDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserEditeDetailViewController.xib; sourceTree = "<group>"; };
 		55C9E56F156E84F600819F93 /* AccountInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountInfo.h; sourceTree = "<group>"; };
 		55C9E570156E84F600819F93 /* AccountInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountInfo.m; sourceTree = "<group>"; };
+		55CD12141570C50000F77069 /* ContactRootUIViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactRootUIViewController.h; sourceTree = "<group>"; };
+		55CD12151570C50000F77069 /* ContactRootUIViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactRootUIViewController.m; sourceTree = "<group>"; };
+		55CD12161570C50000F77069 /* ContactRootUIViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContactRootUIViewController.xib; sourceTree = "<group>"; };
 		55D148231501D9D000187A7F /* TweetAnimationImageFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TweetAnimationImageFrame.h; sourceTree = "<group>"; };
 		55D148241501D9D000187A7F /* TweetAnimationImageFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TweetAnimationImageFrame.m; sourceTree = "<group>"; };
 		55D148251501D9D000187A7F /* TweetAnimationImageNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TweetAnimationImageNode.h; sourceTree = "<group>"; };
@@ -3120,6 +3125,9 @@
 				553F915E1564013B00EA13D0 /* ContactsUIViewController.xib */,
 				553F91621564045A00EA13D0 /* BaseTableViewController.h */,
 				553F91631564045A00EA13D0 /* BaseTableViewController.m */,
+				55CD12141570C50000F77069 /* ContactRootUIViewController.h */,
+				55CD12151570C50000F77069 /* ContactRootUIViewController.m */,
+				55CD12161570C50000F77069 /* ContactRootUIViewController.xib */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -4509,6 +4517,7 @@
 				55E58C43156C8BE00037EE7A /* shakeup.png in Resources */,
 				55E58C4D156CC30D0037EE7A /* ttttt.xib in Resources */,
 				55F0C228156F3664002C7D0E /* ShakeHideImg_women@2x.png in Resources */,
+				55CD12181570C50000F77069 /* ContactRootUIViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4770,6 +4779,7 @@
 				55D4E074156D402300F17BC5 /* TongChengBeanList.m in Sources */,
 				55D4E077156D403B00F17BC5 /* TongChengBean.m in Sources */,
 				55C9E571156E84F600819F93 /* AccountInfo.m in Sources */,
+				55CD12171570C50000F77069 /* ContactRootUIViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

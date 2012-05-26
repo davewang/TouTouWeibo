@@ -67,9 +67,10 @@
 				<bool key="IBUIDefinesPresentationContext">YES</bool>
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 				<bool key="IBUIHorizontal">NO</bool>
-				<object class="IBUINavigationController" key="IBUISelectedViewController" id="896327508">
-					<object class="IBUITabBarItem" key="IBUITabBarItem" id="652297128">
-						<string key="IBUITitle">更多</string>
+				<object class="IBUINavigationController" key="IBUISelectedViewController" id="825763936">
+					<string key="IBUITitle">通讯录</string>
+					<object class="IBUITabBarItem" key="IBUITabBarItem" id="393416186">
+						<string key="IBUITitle">通讯录</string>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 					</object>
 					<reference key="IBUIParentViewController" ref="514307425"/>
@@ -81,7 +82,7 @@
 					<bool key="IBUIDefinesPresentationContext">YES</bool>
 					<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 					<bool key="IBUIHorizontal">NO</bool>
-					<object class="IBUINavigationBar" key="IBUINavigationBar" id="705744006">
+					<object class="IBUINavigationBar" key="IBUINavigationBar" id="293695353">
 						<nil key="NSNextResponder"/>
 						<int key="NSvFlags">256</int>
 						<string key="NSFrameSize">{0, 0}</string>
@@ -92,12 +93,12 @@
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 					</object>
 					<array class="NSMutableArray" key="IBUIViewControllers">
-						<object class="IBUIViewController" id="819665717">
-							<object class="IBUINavigationItem" key="IBUINavigationItem" id="548224741">
+						<object class="IBUIViewController" id="190799520">
+							<object class="IBUINavigationItem" key="IBUINavigationItem" id="196221826">
 								<string key="IBUITitle">Root View Controller</string>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 							</object>
-							<reference key="IBUIParentViewController" ref="896327508"/>
+							<reference key="IBUIParentViewController" ref="825763936"/>
 							<object class="IBUISimulatedOrientationMetrics" key="IBUISimulatedOrientationMetrics">
 								<int key="IBUIInterfaceOrientation">1</int>
 								<int key="interfaceOrientation">1</int>
@@ -228,10 +229,10 @@
 							</object>
 						</array>
 					</object>
-					<object class="IBUINavigationController" id="825763936">
-						<string key="IBUITitle">通讯录</string>
-						<object class="IBUITabBarItem" key="IBUITabBarItem" id="393416186">
-							<string key="IBUITitle">通讯录</string>
+					<reference ref="825763936"/>
+					<object class="IBUINavigationController" id="896327508">
+						<object class="IBUITabBarItem" key="IBUITabBarItem" id="652297128">
+							<string key="IBUITitle">更多</string>
 							<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						</object>
 						<reference key="IBUIParentViewController" ref="514307425"/>
@@ -243,7 +244,7 @@
 						<bool key="IBUIDefinesPresentationContext">YES</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<bool key="IBUIHorizontal">NO</bool>
-						<object class="IBUINavigationBar" key="IBUINavigationBar" id="293695353">
+						<object class="IBUINavigationBar" key="IBUINavigationBar" id="705744006">
 							<nil key="NSNextResponder"/>
 							<int key="NSvFlags">256</int>
 							<string key="NSFrameSize">{0, 0}</string>
@@ -254,12 +255,12 @@
 							<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						</object>
 						<array class="NSMutableArray" key="IBUIViewControllers">
-							<object class="IBUIViewController" id="190799520">
-								<object class="IBUINavigationItem" key="IBUINavigationItem" id="196221826">
+							<object class="IBUIViewController" id="819665717">
+								<object class="IBUINavigationItem" key="IBUINavigationItem" id="548224741">
 									<string key="IBUITitle">Root View Controller</string>
 									<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								</object>
-								<reference key="IBUIParentViewController" ref="825763936"/>
+								<reference key="IBUIParentViewController" ref="896327508"/>
 								<object class="IBUISimulatedOrientationMetrics" key="IBUISimulatedOrientationMetrics">
 									<int key="IBUIInterfaceOrientation">1</int>
 									<int key="interfaceOrientation">1</int>
@@ -269,7 +270,6 @@
 							</object>
 						</array>
 					</object>
-					<reference ref="896327508"/>
 				</array>
 				<object class="IBUITabBar" key="IBUITabBar" id="355025739">
 					<reference key="NSNextResponder"/>
@@ -712,7 +712,7 @@
 				<string key="55.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="60.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="61.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-				<string key="62.CustomClassName">ContactsUIViewController</string>
+				<string key="62.CustomClassName">ContactRootUIViewController</string>
 				<string key="62.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="63.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="64.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>

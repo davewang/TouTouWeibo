@@ -127,12 +127,12 @@
     }     
   // [self leftBackBtnWithAction:@selector(actionBack)];
      
-    
+     
     [self  setViewControllerTitle:@"通讯录"];
     [self showWait:YES];
     
     if (!cityId) {
-        
+        [self leftBackBtnWithAction:@selector(actionBack)];
     
     UIButton *locatedBtn=[UIButton buttonWithType:UIButtonTypeCustom];
     locatedBtn.frame=CGRectMake(0, 0, 40, 30);

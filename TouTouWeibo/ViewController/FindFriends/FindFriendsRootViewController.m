@@ -53,7 +53,7 @@
     [self.navigationController.navigationBar setNeedsDisplay1];
     [super viewDidLoad]; 
     [self setViewControllerTitle:@"找朋友"];
-   
+    [self leftBackBtnWithAction:@selector(actionBack)];
     NSMutableArray *array=[[NSMutableArray alloc] initWithObjects:@"摇一摇",@"同城查找",nil];
     self._findFriendsVCList1=array;
     NSMutableArray *array1=[[NSMutableArray alloc] initWithObjects:@"按名称查找",@"按班级查找",@"按城市查找",nil];
