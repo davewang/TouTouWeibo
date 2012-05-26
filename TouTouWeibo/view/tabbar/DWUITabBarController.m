@@ -55,7 +55,7 @@
             [itme3 setHighlighted:NO];
             [itme4 setHighlighted:NO];
             [itme5 setHighlighted:NO];
-            [itme6 setHighlighted:NO];
+          //  [itme6 setHighlighted:NO];
             break;
         case 1:
             [itme1 setHighlighted:NO]; 
@@ -63,7 +63,7 @@
             [itme3 setHighlighted:NO];
             [itme4 setHighlighted:NO];
             [itme5 setHighlighted:NO];
-            [itme6 setHighlighted:NO];
+          //  [itme6 setHighlighted:NO];
             break;
         case 2:
             [itme1 setHighlighted:NO]; 
@@ -71,7 +71,7 @@
             [itme3 setHighlighted:YES];
             [itme4 setHighlighted:NO];
             [itme5 setHighlighted:NO];
-            [itme6 setHighlighted:NO];
+          //  [itme6 setHighlighted:NO];
             break;
         case 3:
             
@@ -80,7 +80,7 @@
             [itme3 setHighlighted:NO];
             [itme4 setHighlighted:YES];
             [itme5 setHighlighted:NO];
-            [itme6 setHighlighted:NO];
+           // [itme6 setHighlighted:NO];
             break;
         case 4:
             [itme1 setHighlighted:NO]; 
@@ -88,16 +88,16 @@
             [itme3 setHighlighted:NO];
             [itme4 setHighlighted:NO];
             [itme5 setHighlighted:YES];
-            [itme6 setHighlighted:NO];
+          //  [itme6 setHighlighted:NO];
             break;  
-        case 5:
-            [itme1 setHighlighted:NO]; 
-            [itme2 setHighlighted:NO];
-            [itme3 setHighlighted:NO];
-            [itme4 setHighlighted:NO];
-            [itme5 setHighlighted:NO];
-            [itme6 setHighlighted:YES];
-            break; 
+//        case 5:
+//            [itme1 setHighlighted:NO]; 
+//            [itme2 setHighlighted:NO];
+//            [itme3 setHighlighted:NO];
+//            [itme4 setHighlighted:NO];
+//            [itme5 setHighlighted:NO];
+//           // [itme6 setHighlighted:YES];
+//            break; 
         default:
             break;
     }
@@ -139,7 +139,7 @@
    // [UIView beginAnimations:nil context:nil];
    // [UIView setAnimationDuration:.2];
 //    
-    float widthLbl=(320/6);
+    float widthLbl=(320/5);
     
      lightImageView.frame = CGRectMake(widthLbl*tabBarController.selectedIndex,0, widthLbl, VTabBarHight);
    // [UIView commitAnimations];
@@ -156,7 +156,7 @@
 
 -(void)addImageView
 {
-    float  lblWidth=(320/6);
+    float  lblWidth=(320/5);
    
     UIImageView * tabImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"footbg.png"]];
     tabImageView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"tabbar_background.png"]];
@@ -167,7 +167,7 @@
     lightImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"tabbar_slider.png"]];
     lightImageView.frame = CGRectMake(lblWidth*0, 0,lblWidth, VTabBarHight);
     [tabImageView addSubview:lightImageView];
-    int leftspace = 10;
+    int leftspace = 15;
     
     NSString *imageName = @"tabbar_home.png";
     NSString *imageSelectedName = @"tabbar_home_selected.png";
@@ -208,8 +208,8 @@
     itme4.frame = CGRectMake(leftspace+lblWidth*3, 4, itme4.image.size.width, itme4.image.size.height);
     
     [tabImageView addSubview:itme4];
-    imageName = @"tabbar_profile.png";
-    imageSelectedName = @"tabbar_profile_selected.png";
+    imageName = @"tabbar_more.png";
+    imageSelectedName = @"tabbar_more_selected.png";
     
     
     itme5 = [[UIImageView alloc] initWithImage:[UIImage imageNamed:imageName] highlightedImage: [UIImage imageNamed:imageSelectedName]]; 
@@ -217,15 +217,15 @@
     
     [tabImageView addSubview:itme5];
     
-    
-    imageName = @"tabbar_more.png";
-    imageSelectedName = @"tabbar_more_selected.png";
-    
-    itme6 = [[UIImageView alloc] initWithImage:[UIImage imageNamed:imageName] highlightedImage: [UIImage imageNamed:imageSelectedName]]; 
-    itme6.frame = CGRectMake(leftspace+lblWidth*5, 4, itme6.image.size.width, itme6.image.size.height);
-    
-    [tabImageView addSubview:itme6];
-    NSArray * nameArr=[NSArray arrayWithObjects:@"首页",@"信息",@"我的资料",@"通讯录",@"找朋友",@"更多", nil];
+//    
+//    imageName = @"tabbar_more.png";
+//    imageSelectedName = @"tabbar_more_selected.png";
+//    
+//    itme6 = [[UIImageView alloc] initWithImage:[UIImage imageNamed:imageName] highlightedImage: [UIImage imageNamed:imageSelectedName]]; 
+//    itme6.frame = CGRectMake(leftspace+lblWidth*5, 4, itme6.image.size.width, itme6.image.size.height);
+//    
+//    [tabImageView addSubview:itme6];
+    NSArray * nameArr=[NSArray arrayWithObjects:@"首页",@"信息",@"我的资料",@"通讯录",@"更多", nil];
     CGRect rect=CGRectMake(0, 31, lblWidth, 14);
     for (int i=0;i<[nameArr count];i++)
     {
@@ -251,7 +251,7 @@
     [itme3 release];
     [itme4 release];
     [itme5 release];
-    [itme6 release];
+    //[itme6 release];
     
     [super dealloc];
 }

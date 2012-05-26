@@ -19,7 +19,7 @@
     UIImageView * itme3;
     UIImageView * itme4;
     UIImageView * itme5;
-    UIImageView * itme6;
+   // UIImageView * itme6;
     IBOutlet UserProfileViewController *userProfile;
     IBOutlet FriendsTimelineViewController *friendsTimeline;
     IBOutlet FriendsAboutWithMeViewController *friendsAboutWithMe;
