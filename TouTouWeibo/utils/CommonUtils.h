@@ -90,7 +90,7 @@
 +(ShakeListBean*)loadShakePersonListBeanUserId:(NSString*)userId;
 +(ShakeListBean *)shakeHistoryWithUserId:(NSString*)userId;
 +(NSString *)deleteShakeHistoryUserId:(NSString*)userId;
-
++(ShakeListBean*)loadShakeListBeanUserId:(NSString*)userId;
 
 
 

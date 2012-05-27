@@ -1117,6 +1117,29 @@ return list;
     }
 
 }
++(ShakeListBean*)loadShakeListBeanUserId:(NSString*)userId {
+    
+    NSURL *tempurl = [[[ NSURL alloc ] initWithString:SHAKE_LIST_INFO_URL  ] autorelease ];
+    
+    ASIFormDataRequest *request = [[[ ASIFormDataRequest alloc ] initWithURL : tempurl ] autorelease ];
+    
+    [request setPostValue:[NSString stringWithFormat:@"%@",userId] forKey:@"userId"];
+    [request setUseCookiePersistence : YES ];
+    
+    [request startSynchronous ];
+    NSString *html = [[[NSString alloc]initWithData:[request responseData] encoding:NSUTF8StringEncoding]autorelease];
+    NSData *jsonData = [html dataUsingEncoding:NSUTF8StringEncoding];
+    
+    NSLog(@">>>>>>>>>>>>>>>>>>loadContactListBean %@",html);
+    NSError *error = nil;
+    NSDictionary *dictionary = [[CJSONDeserializer deserializer] deserializeAsDictionary:jsonData error:&error];
+    
+    ShakeListBean *list = [ShakeListBean ShakeListBeanWithNSDictionary:dictionary];
+    
+    
+    return list;
+    
+} 
  
 
 
