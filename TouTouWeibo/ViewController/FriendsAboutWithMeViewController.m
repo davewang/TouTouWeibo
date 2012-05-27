@@ -126,17 +126,7 @@
          return cell;
      }else if( currentType==2)
      {
-         //WeiBoModel *weiBo = [directs objectAtIndex:indexPath.row];
-//         StatusCellViewDoc *stsDoc = [StatusCellViewDoc documentWithStatus:weiBo width:_tableView.frame.size.width];
-//      
-//         static NSString *CellIdentifier = @"StatusCell";
-//         TweetCell *cell = (TweetCell *)[_tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-//         if (cell == nil) {
-//             cell = [[[TweetCell alloc] initWithStyle:UITableViewCellStyleDefault 
-//                                      reuseIdentifier:CellIdentifier] autorelease];
-//         }
-//         cell.doc = stsDoc;
-//         return cell;
+  
          Reply *sts = [Reply ReplyWithWeiboModel:[directs objectAtIndex:indexPath.row]];
          CommentCellViewDoc *commentDoc = [self documentWithComment:sts width:tableView.frame.size.width];
          static NSString *CellIdentifier = @"CommentCell";

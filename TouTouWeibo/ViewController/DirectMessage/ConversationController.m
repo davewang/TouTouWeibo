@@ -105,11 +105,13 @@
     NSLog(@"[conversation.user username] =%@",conversation.user.username);
     
    // [CommonUtils loadLetterListModeByOtherUserId:[NSString stringWithFormat:@"%lld",conversation.user.userId] withPage:1];
+  //  btnEmotion.hidden = YES;
     
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-	canResponseEmotion = YES;
+//	canResponseEmotion = YES;
+    	canResponseEmotion = NO;
     [self setViewControllerTitle: [conversation.user username]];
    
     NSLog(@"[conversation.user username] =%@",[conversation.user username]);
@@ -275,80 +277,12 @@
 		}
 	}
 }
-
-
-/*
-- (void)registerForKeyboardNotifications
-{
-    [[NSNotificationCenter defaultCenter] addObserver:self
-											 selector:@selector(keyboardWasShown:)
-												 name:UIKeyboardWillShowNotification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self
-											 selector:@selector(keyboardWasHidden:)
-												 name:UIKeyboardWillHideNotification object:nil];
-	keyboardShown = NO;
-}
-
-- (void)keyboardWasShown:(NSNotification*)aNotification
-{
-    if (keyboardShown) {
-        return;
-	}
-	keyboardShown = YES;
-    NSDictionary* info = [aNotification userInfo];
-    NSValue* aValue = [info objectForKey:UIKeyboardBoundsUserInfoKey];
-    CGSize keyboardSize = [aValue CGRectValue].size;
-    aValue = [info objectForKey:UIKeyboardAnimationDurationUserInfoKey];
-	NSTimeInterval animationDuration;
-	[aValue getValue:&animationDuration];
-	UIViewAnimationCurve animationCurve;
-	aValue = [info objectForKey:UIKeyboardFrameBeginUserInfoKey];
-	[aValue getValue:&animationCurve];
-	
-	[UIView beginAnimations:nil context:nil];
-	[UIView setAnimationDuration:animationDuration];
-	[UIView setAnimationCurve:animationCurve];
-	
-	self.view.frame = CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y, self.view.frame.size.width, self.view.frame.size.height - keyboardSize.height);
-	[self initFrame];
-	[UIView commitAnimations];
-	//NSLog(@"%@",NSStringFromCGRect(self.view.frame));
-	//NSLog(@"%f,%d",animationDuration,animationCurve);
-	
-}
-
-
-// Called when the UIKeyboardDidHideNotification is sent
-- (void)keyboardWasHidden:(NSNotification*)aNotification
-{
-	if (!keyboardShown) {
-		return;
-	}
-	keyboardShown = NO;
-    NSDictionary* info = [aNotification userInfo];
-    NSValue* aValue = [info objectForKey:UIKeyboardBoundsUserInfoKey];
-    CGSize keyboardSize = [aValue CGRectValue].size;
-    aValue = [info objectForKey:UIKeyboardAnimationDurationUserInfoKey];
-	NSTimeInterval animationDuration;
-	[aValue getValue:&animationDuration];
-	UIViewAnimationCurve animationCurve;
-	aValue = [info objectForKey:UIKeyboardFrameBeginUserInfoKey];
-	[aValue getValue:&animationCurve];
-	
-	[UIView beginAnimations:nil context:nil];
-	[UIView setAnimationDuration:animationDuration];
-	[UIView setAnimationCurve:animationCurve];
-	self.view.frame = CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y, self.view.frame.size.width, self.view.frame.size.height + keyboardSize.height);
-	[self initFrame];
-	[UIView commitAnimations];
-	//NSLog(@"%@",NSStringFromCGRect(self.view.frame));
-	NSLog(@"%f,%d",animationDuration,animationCurve);
-}
-*/
-
+ 
 - (BOOL)growingTextViewShouldBeginEditing:(HPGrowingTextView *)growingTextView {
-	btnEmotion.hidden = NO;
-	btnKeyboard.hidden = YES;
+	btnEmotion.hidden = YES;
+    btnKeyboard.hidden = NO;
+// 	btnEmotion.hidden = NO;
+//	btnKeyboard.hidden = YES;
 	keyboardShown = YES;
 	[UIView beginAnimations:nil context:nil];
 	[UIView setAnimationDuration:0.3];
@@ -360,11 +294,18 @@
 }
 
 - (void)growingTextViewDidBeginEditing:(HPGrowingTextView *)growingTextView {
+   
 	emoticonsPopupView.frame = CGRectMake(0, 480, 320, 216);
 	emotionViewShown = NO;
+    
+	 
+    //	emoticonsPopupView.frame = CGRectMake(0, 480, 320, 216);
+    //	emotionViewShown = NO;
+
 }
 
 - (BOOL)growingTextViewShouldEndEditing:(HPGrowingTextView *)growingTextView{
+
 	keyboardShown = NO;
 	if (emotionViewShown) {
 		[self initFrame];
@@ -383,12 +324,11 @@
 - (void)growingTextViewDidChange:(HPGrowingTextView *)growingTextView {
 	if (growingTextView.text.length >= txtMaxLength) {
 		growingTextView.text = [growingTextView.text substringToIndex:txtMaxLength];
-//		[[AppDelegate_iPhone getAppDelegate] alert:@"错误" message:@"私信字数不能超过300"];
-		return;
+ 		return;
 	}
 	conversation.draft = txtView.text;
 	textRange = growingTextView.selectedRange;
-	//NSLog(@"%@",NSStringFromRange(textRange));
+	 
 }
 
 - (void)growingTextView:(HPGrowingTextView *)growingTextView willChangeHeight:(float)height
@@ -407,8 +347,11 @@
 
 
 - (void)hideKeyboard {
-	btnEmotion.hidden = NO;
-	btnKeyboard.hidden = YES;
+    	btnEmotion.hidden = YES;
+    	btnKeyboard.hidden = NO;
+
+//	btnEmotion.hidden = NO;
+//	btnKeyboard.hidden = YES;
 	if (emotionViewShown) {
 		emotionViewShown = NO;
 		[UIView beginAnimations:nil context:nil];
@@ -418,17 +361,14 @@
 		emoticonsPopupView.frame = CGRectMake(0, 480, 320, 216);
 		[UIView commitAnimations];
 	}
+    
 }
 
 - (IBAction)btnSendTouched:(id)sender {
 	if (![txtView.text isEqualToString:@""]) {
         
         [CommonUtils sendDirectMessage:@"is"  mesg:[NSString stringWithFormat:@"#@%@ %@",[conversation.user username],txtView.text] isSee:@"is"];
-//		DirectMessageDraft *draft = [[DirectMessageDraft alloc] init];
-//		draft.text = txtView.text;
-//		draft.recipientId = conversation.conversationId - draft.senderId;
-//		[conversationControllerDelegate sendDirectMessage:draft];
-//		[draft release];
+ 
         [self reloadDataSource];
 		conversation.draft = @"";
 		textRange = NSMakeRange(0, 0);
@@ -455,6 +395,7 @@
 		keyboardShown = NO;
 		emotionViewShown = YES;
 		[txtView.internalTextView resignFirstResponder];
+        
 	}
 	else {
 		emotionViewShown = YES;
@@ -464,14 +405,19 @@
 		[self initFrame];
 		emoticonsPopupView.frame = CGRectMake(0, 200, 320, 216);
 		[UIView commitAnimations];
+        [self hideKeyboard ];
 	}
 }
 
 - (IBAction)btnKeyboardTouched:(id)sender{
-	btnEmotion.hidden = NO;
-	btnKeyboard.hidden = YES;
+ 
+    btnEmotion.hidden = YES;
+	btnKeyboard.hidden = NO;
+//    btnEmotion.hidden = YES;
+//    btnKeyboard.hidden = NO;
+    
 	[txtView.internalTextView becomeFirstResponder];
-	//emoticonsPopupView.frame = CGRectMake(0, 480, 320, 216);
+	 
 }
 
 @end
