@@ -26,6 +26,6 @@
     shakeListBean.pageInfo =   [Page PageWithNSDictionary:  [_dic  objectForKey:@"pageInfo"]];
     
     
-    return nil;
+    return shakeListBean;
 }
 @end
