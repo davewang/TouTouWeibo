@@ -246,6 +246,8 @@
 		55C9E571156E84F600819F93 /* AccountInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C9E570156E84F600819F93 /* AccountInfo.m */; };
 		55CD12171570C50000F77069 /* ContactRootUIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55CD12151570C50000F77069 /* ContactRootUIViewController.m */; };
 		55CD12181570C50000F77069 /* ContactRootUIViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55CD12161570C50000F77069 /* ContactRootUIViewController.xib */; };
+		55CD121D1571C3BA00F77069 /* FindFriendByTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55CD121B1571C3AA00F77069 /* FindFriendByTypeViewController.m */; };
+		55CD121E1571C3BA00F77069 /* FindFriendByTypeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55CD121C1571C3B100F77069 /* FindFriendByTypeViewController.xib */; };
 		55D1484F1501D9D000187A7F /* TweetAnimationImageFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 55D148241501D9D000187A7F /* TweetAnimationImageFrame.m */; };
 		55D148501501D9D000187A7F /* TweetAnimationImageNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 55D148261501D9D000187A7F /* TweetAnimationImageNode.m */; };
 		55D148511501D9D000187A7F /* TweetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 55D148281501D9D000187A7F /* TweetCell.m */; };
@@ -926,7 +928,6 @@
 		55E58C32156C8BE00037EE7A /* drawer_arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 55E58C15156C8BE00037EE7A /* drawer_arrow.png */; };
 		55E58C33156C8BE00037EE7A /* FinderInCityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55E58C17156C8BE00037EE7A /* FinderInCityViewController.m */; };
 		55E58C34156C8BE00037EE7A /* FinderInCityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55E58C18156C8BE00037EE7A /* FinderInCityViewController.xib */; };
-		55E58C35156C8BE00037EE7A /* FindFriendByTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55E58C1A156C8BE00037EE7A /* FindFriendByTypeViewController.m */; };
 		55E58C36156C8BE00037EE7A /* FindFriendsRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55E58C1C156C8BE00037EE7A /* FindFriendsRootViewController.m */; };
 		55E58C37156C8BE00037EE7A /* FindFriendsRootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55E58C1D156C8BE00037EE7A /* FindFriendsRootViewController.xib */; };
 		55E58C38156C8BE00037EE7A /* FoundResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55E58C1F156C8BE00037EE7A /* FoundResultViewController.m */; };
@@ -1329,6 +1330,9 @@
 		55CD12141570C50000F77069 /* ContactRootUIViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactRootUIViewController.h; sourceTree = "<group>"; };
 		55CD12151570C50000F77069 /* ContactRootUIViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactRootUIViewController.m; sourceTree = "<group>"; };
 		55CD12161570C50000F77069 /* ContactRootUIViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContactRootUIViewController.xib; sourceTree = "<group>"; };
+		55CD121A1571C3A800F77069 /* FindFriendByTypeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FindFriendByTypeViewController.h; sourceTree = "<group>"; };
+		55CD121B1571C3AA00F77069 /* FindFriendByTypeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FindFriendByTypeViewController.m; sourceTree = "<group>"; };
+		55CD121C1571C3B100F77069 /* FindFriendByTypeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FindFriendByTypeViewController.xib; sourceTree = "<group>"; };
 		55D148231501D9D000187A7F /* TweetAnimationImageFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TweetAnimationImageFrame.h; sourceTree = "<group>"; };
 		55D148241501D9D000187A7F /* TweetAnimationImageFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TweetAnimationImageFrame.m; sourceTree = "<group>"; };
 		55D148251501D9D000187A7F /* TweetAnimationImageNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TweetAnimationImageNode.h; sourceTree = "<group>"; };
@@ -2121,8 +2125,6 @@
 		55E58C16156C8BE00037EE7A /* FinderInCityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FinderInCityViewController.h; sourceTree = "<group>"; };
 		55E58C17156C8BE00037EE7A /* FinderInCityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FinderInCityViewController.m; sourceTree = "<group>"; };
 		55E58C18156C8BE00037EE7A /* FinderInCityViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FinderInCityViewController.xib; sourceTree = "<group>"; };
-		55E58C19156C8BE00037EE7A /* FindFriendByTypeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FindFriendByTypeViewController.h; sourceTree = "<group>"; };
-		55E58C1A156C8BE00037EE7A /* FindFriendByTypeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FindFriendByTypeViewController.m; sourceTree = "<group>"; };
 		55E58C1B156C8BE00037EE7A /* FindFriendsRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FindFriendsRootViewController.h; sourceTree = "<group>"; };
 		55E58C1C156C8BE00037EE7A /* FindFriendsRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FindFriendsRootViewController.m; sourceTree = "<group>"; };
 		55E58C1D156C8BE00037EE7A /* FindFriendsRootViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FindFriendsRootViewController.xib; sourceTree = "<group>"; };
@@ -3759,8 +3761,6 @@
 				55E58C16156C8BE00037EE7A /* FinderInCityViewController.h */,
 				55E58C17156C8BE00037EE7A /* FinderInCityViewController.m */,
 				55E58C18156C8BE00037EE7A /* FinderInCityViewController.xib */,
-				55E58C19156C8BE00037EE7A /* FindFriendByTypeViewController.h */,
-				55E58C1A156C8BE00037EE7A /* FindFriendByTypeViewController.m */,
 				55E58C1B156C8BE00037EE7A /* FindFriendsRootViewController.h */,
 				55E58C1C156C8BE00037EE7A /* FindFriendsRootViewController.m */,
 				55E58C1D156C8BE00037EE7A /* FindFriendsRootViewController.xib */,
@@ -3783,6 +3783,9 @@
 				55E58C2E156C8BE00037EE7A /* shakeup.png */,
 				55E58C2F156C8BE00037EE7A /* VlionActionSheet.h */,
 				55E58C30156C8BE00037EE7A /* VlionActionSheet.m */,
+				55CD121A1571C3A800F77069 /* FindFriendByTypeViewController.h */,
+				55CD121B1571C3AA00F77069 /* FindFriendByTypeViewController.m */,
+				55CD121C1571C3B100F77069 /* FindFriendByTypeViewController.xib */,
 			);
 			path = FindFriends;
 			sourceTree = "<group>";
@@ -4518,6 +4521,7 @@
 				55E58C4D156CC30D0037EE7A /* ttttt.xib in Resources */,
 				55F0C228156F3664002C7D0E /* ShakeHideImg_women@2x.png in Resources */,
 				55CD12181570C50000F77069 /* ContactRootUIViewController.xib in Resources */,
+				55CD121E1571C3BA00F77069 /* FindFriendByTypeViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4762,7 +4766,6 @@
 				55A47919156B905400D7B542 /* MapModeViewController.m in Sources */,
 				55A4791E156BA60700D7B542 /* MapDataList.m in Sources */,
 				55E58C33156C8BE00037EE7A /* FinderInCityViewController.m in Sources */,
-				55E58C35156C8BE00037EE7A /* FindFriendByTypeViewController.m in Sources */,
 				55E58C36156C8BE00037EE7A /* FindFriendsRootViewController.m in Sources */,
 				55E58C38156C8BE00037EE7A /* FoundResultViewController.m in Sources */,
 				55E58C3A156C8BE00037EE7A /* FriendObject.m in Sources */,
@@ -4780,6 +4783,7 @@
 				55D4E077156D403B00F17BC5 /* TongChengBean.m in Sources */,
 				55C9E571156E84F600819F93 /* AccountInfo.m in Sources */,
 				55CD12171570C50000F77069 /* ContactRootUIViewController.m in Sources */,
+				55CD121D1571C3BA00F77069 /* FindFriendByTypeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
