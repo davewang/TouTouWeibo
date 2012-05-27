@@ -1031,11 +1031,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "TouTouWeibo/ViewController/FindFriends/FoundResultViewController.m"
-         timestampString = "359781087.920762"
+         timestampString = "359782210.19367"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "161"
-         endingLineNumber = "161"
+         startingLineNumber = "147"
+         endingLineNumber = "147"
          landmarkName = "-loadCurrentViewData"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1051,6 +1051,20 @@
          startingLineNumber = "931"
          endingLineNumber = "931"
          landmarkName = "+loadFriendObjectWithFriendType:cityId:pageNo:pageSize:friendType:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "TouTouWeibo/view/Map/ViewController/MapModeViewController.m"
+         timestampString = "359786099.880975"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "99"
+         endingLineNumber = "99"
+         landmarkName = "-connectForLocation"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>
