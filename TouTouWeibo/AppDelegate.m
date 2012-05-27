@@ -33,6 +33,7 @@ static int NetworkActivityIndicatorCounter = 0;
     userSignined = NO;
     [self.window addSubview:homeViewController.view];
     rootViewController = homeViewController;
+    //self.window.rootViewController = rootViewController;
     [self.window makeKeyAndVisible];
    // [self.window makeKeyWindow];
    // NSLog(@"keyWindow = %@",[[UIApplication sharedApplication] keyWindow]);
