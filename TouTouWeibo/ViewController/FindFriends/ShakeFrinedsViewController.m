@@ -106,7 +106,7 @@
     [self.view addSubview:drawer];
     
     
-    UIButton * setBt = [UIButton buttonWithType:UIButtonTypeCustom];
+    UIButton * setBt = [UIButton buttonWithType:UIButtonTypeContactAdd];
     setBt.frame=CGRectMake(0, 0, 40, 30);
     [setBt setTitle:@"设置" forState:UIControlStateNormal];
     [setBt setImage:[CommonUtils stretchableImageFromName:@"navigationbar_button_background.png"] forState:UIControlStateNormal];
@@ -116,6 +116,7 @@
     //控制导航的通知
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeNavFrame:) name:@"KHIDENAV" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeNavFrame:) name:@"KSHOWNAV" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addPerson) name:@"AddPERSON" object:nil];
     
 //    AccelerometerHelper * accelerometer = [AccelerometerHelper sharedInstance];
 //    accelerometer.delegate=self;
@@ -212,27 +213,27 @@
 
 
 
--(UIView *) tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
-{
-    if ([shakeArray count]==0) {
-        return nil;
-    }else{
-    UIButton * customeBt = [UIButton buttonWithType:UIButtonTypeCustom];
-    customeBt.backgroundColor=[UIColor grayColor];
-    customeBt.frame=CGRectMake(0, 0, 320, 50);
-    [customeBt setTitle:@"显示早前摇到的人" forState:UIControlStateNormal];
-    [customeBt addTarget:self action:@selector(addPerson) forControlEvents:UIControlStateNormal];
-    return customeBt;
-    }
-}
+//-(UIView *) tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
+//{
+//    if ([shakeArray count]==0) {
+//        return nil;
+//    }else{
+//    UIButton * customeBt = [UIButton buttonWithType:UIButtonTypeCustom];
+//    customeBt.backgroundColor=[UIColor grayColor];
+//    customeBt.frame=CGRectMake(0, 0, 320, 50);
+//    [customeBt setTitle:@"显示早前摇到的人" forState:UIControlStateNormal];
+//    [customeBt addTarget:self action:@selector(addPerson) forControlEvents:UIControlStateNormal];
+//    return customeBt;
+//    }
+//}
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 75;
 }
--(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
-{
-    return 50;
-}
+//-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+//{
+//    return 50;
+//}
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return [shakeArray count];

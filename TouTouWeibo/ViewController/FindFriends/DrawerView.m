@@ -26,7 +26,7 @@
         //箭头的图片
         UIImage *drawer_arrow = [UIImage imageNamed:@"drawer_arrow.png"];
         arrow = [[UIImageView alloc]initWithImage:drawer_arrow];
-        [arrow setFrame:CGRectMake(0,0,28,28)];
+        [arrow setFrame:CGRectMake(0,0,30,30)];
         arrow.userInteractionEnabled=YES;
         arrow.center = CGPointMake(contentview.frame.size.width/2, 20);
         [self addSubview:arrow];
@@ -91,7 +91,7 @@
                     [[NSNotificationCenter defaultCenter] postNotificationName:@"KSHOWNAV" object:nil];
                     self.center = upPoint;
                     [self transformArrow:DrawerViewStateUp];
-                    
+                    [[NSNotificationCenter defaultCenter] postNotificationName:@"ADDPERSON" object:nil];
                     
                 }else
                 {
@@ -117,6 +117,7 @@
                 [[NSNotificationCenter defaultCenter] postNotificationName:@"KSHOWNAV" object:nil];
                 self.center = upPoint;
                 [self transformArrow:DrawerViewStateUp];
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"ADDPERSON" object:nil];
             }else
             {
                 [[NSNotificationCenter defaultCenter] postNotificationName:@"KHIDENAV" object:nil];
