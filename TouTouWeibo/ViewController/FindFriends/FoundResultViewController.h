@@ -21,6 +21,7 @@ LoadMoreTableFooterViewDelegate,EGORefreshTableHeaderDelegate>
     NSString *findValues;
     NSString *proviceName;
     NSString *cityName;
+    NSString *cityId;
     CommonFriendListBean *friendList;
     
     LoadMoreTableFooterView *_loadMoreTableFooterView;
@@ -36,6 +37,7 @@ LoadMoreTableFooterViewDelegate,EGORefreshTableHeaderDelegate>
 @property(nonatomic,retain) NSString *findValues;
 @property(nonatomic,retain) NSString *proviceName;
 @property(nonatomic,retain) NSString *cityName;
+@property(nonatomic,retain) NSString *cityId;
 @property(nonatomic,retain) CommonFriendListBean *friendList;
 
 @end

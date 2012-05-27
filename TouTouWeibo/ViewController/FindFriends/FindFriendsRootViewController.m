@@ -201,7 +201,7 @@
                 
             }
             else {
-                find.findType=@"city";
+                selcectVC.findType=@"city";
                 self.hidesBottomBarWhenPushed = YES;
                 [self.navigationController pushViewController:selcectVC animated:YES];
                 self.hidesBottomBarWhenPushed = NO;

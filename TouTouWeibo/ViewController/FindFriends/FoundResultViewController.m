@@ -11,6 +11,7 @@
 #import "FriendObject.h"
 #import "CommonFriendBean.h"
 #import "ContactBean.h"
+
 @implementation FoundResultViewController
 @synthesize  _findFriendsList;
 @synthesize tableView=_tableView;
@@ -19,6 +20,7 @@
 @synthesize friendList;
 @synthesize proviceName;
 @synthesize cityName;
+@synthesize cityId;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -80,7 +82,8 @@
     MapModeViewController *map=[[MapModeViewController alloc]init];
     map.friendType=findType;
     if ([findType isEqualToString:@"city"]) {
-        map.searchText=proviceName;
+        map.cityName = cityName;
+        map.proviceName = proviceName;
     }
     else{
         map.searchText=findValues;
@@ -107,6 +110,7 @@
 {
     [self.navigationController.navigationBar setNeedsDisplay1];
     [super viewDidLoad]; 
+  
     if ([findType isEqualToString:@"name"]) {
         [self setViewControllerTitle:@"按名称查找"];
     }else if ([findType isEqualToString:@"class"]) {
@@ -122,7 +126,9 @@
     }else{
         [self setViewControllerTitle:@"按城市查找"];
     }
-    
+    if (cityId) {
+         [self setViewControllerTitle:@"查询结果"];
+    }else{
     UIButton *locatedBtn=[UIButton buttonWithType:UIButtonTypeCustom];
     locatedBtn.frame=CGRectMake(0, 0, 40, 30);
     locatedBtn.titleLabel.font = [UIFont systemFontOfSize:12.0f];
@@ -130,7 +136,7 @@
     [locatedBtn addTarget:self action:@selector(locatedMode) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem * rightButton=[[UIBarButtonItem alloc] initWithCustomView:locatedBtn];
     self.navigationItem.rightBarButtonItem=rightButton;
-
+    }
     [self leftBackBtnWithAction:@selector(actionBack)];
     [self egoRefreshInit];
     // Do any additional setup after loading the view from its nib.
@@ -150,7 +156,7 @@
     
     NSLog(@"cityName = %@",cityName);
     if ([findType isEqualToString:@"name"]) {
-        friendList=[CommonUtils loadFriendObjectWithFriendType:findValues cityId:@"" pageNo:[NSString stringWithFormat:@"%d",currentPageNo] pageSize:@"10" friendType:@"0"];
+        friendList=[CommonUtils loadFriendObjectWithFriendType:findValues cityId:cityId?cityId:@"" pageNo:[NSString stringWithFormat:@"%d",currentPageNo] pageSize:@"10" friendType:@"0"];
        // [CommonUtils ShowWaitingView:NO];
         
         if ( friendList.pageInfo.pageNo >=friendList.pageInfo.sumPage ) {
@@ -163,7 +169,7 @@
     }
     else if([findType isEqualToString:@"class"])
     {
-        self.friendList=[CommonUtils loadFriendObjectWithFriendType:findValues cityId:@"" pageNo:[NSString stringWithFormat:@"%d",currentPageNo] pageSize:@"10" friendType:@"1"];
+        self.friendList=[CommonUtils loadFriendObjectWithFriendType:findValues cityId:cityId?cityId:@"" pageNo:[NSString stringWithFormat:@"%d",currentPageNo] pageSize:@"10" friendType:@"1"];
         //[CommonUtils ShowWaitingView:NO];
         if ( friendList.pageInfo.pageNo >=friendList.pageInfo.sumPage ) {
             [self.tableView.tableFooterView setHidden:YES];
@@ -228,66 +234,7 @@
 // Cell gets various attributes set automatically based on table (separators) and data source (accessory views, editing controls)
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-//    UITableViewCell *cell = nil;
-//	NSUInteger row = [indexPath row];
-//	
-//    static NSString *kDisplayCell_ID = @"DisplayCellID";
-//    cell = [tableView dequeueReusableCellWithIdentifier:kDisplayCell_ID];
-//    if (cell == nil) 
-//    {
-//        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kDisplayCell_ID] autorelease];
-//        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-//        
-//    }
-//    
-//    UIView *cView=nil;
-//	int i=0;
-//	for (UIView * fuck in [cell subviews]) {
-//		if (i==0) {
-//			cView=fuck;
-//			for (UIView *fuck2 in [cView subviews]) {
-//				[fuck2 removeFromSuperview];
-//			}
-//			i=1;
-//		}
-//		break;
-//	}
-//    
-//    UIImageView *profile=[[UIImageView alloc]initWithFrame:CGRectMake(6,6,50,34)];
-//	UILabel *name=[[UILabel alloc] initWithFrame:CGRectMake(70,2,50,18)];
-//	UILabel *className=[[UILabel alloc] initWithFrame:CGRectMake(70,24,190,18)];
-//    UIImageView *sexFlag=[[UIImageView alloc]initWithFrame:CGRectMake(124,8,14,14)];
-//    
-//    CommonFriendBean *friendData=[data objectAtIndex:indexPath.row];
-//    profile.image=[UIImage imageNamed:@"lbs_nearbypeople_popuphint_location_icon.png"];
-//    sexFlag.image=[UIImage imageNamed:@"profile_genderM.png"];
-//    name.font=[UIFont systemFontOfSize:15];
-//    name.text=friendData.userName;
-//    className.font=[UIFont systemFontOfSize:11];
-//	name.backgroundColor=[UIColor clearColor];
-//	className.backgroundColor=[UIColor clearColor];
-////	className.text=friendData.class;
-////    profile.image=[UIImage imageNamed:[imageNames objectAtIndex:indexPath.row]];
-////    name.font=[UIFont systemFontOfSize:15];
-////    name.text=[_findFriendsList objectAtIndex:row];
-////	className.font=[UIFont systemFontOfSize:11];
-////	name.backgroundColor=[UIColor clearColor];
-////	className.backgroundColor=[UIColor clearColor];
-//	className.text=@"PE班级";
-//
-//	
-//	[cView addSubview:name];
-//	[cView addSubview:profile];
-//	[cView addSubview:className];
-//	[cView addSubview:sexFlag];
-//    
-//    [profile release];
-//	[name release];
-//	[className release];
-//	[sexFlag release];
-//	
-//    cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
-    
+     
     static NSString * showUserInfoCellIdentifier = @"ShowUserInfoCell";  
     ContactCell * cell = (ContactCell*)[_tableView dequeueReusableCellWithIdentifier:showUserInfoCellIdentifier];  
     if (cell == nil)  
@@ -305,11 +252,7 @@
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     [cell setHeadUrl:bean.image];
     [cell setSex:bean.sex];
-    //cell.name.text
-    // Configure the cell.  
-    //    cell.textLabel.text=@"签名";  
-    //    cell.detailTextLabel.text = [NSString stringWithCString:userInfo.user_signature.c_str()  encoding:NSUTF8StringEncoding];  
-    
+   
     return cell;
  
 }
@@ -318,7 +261,7 @@
 {
    FriendsDetailViewController *detail=[[FriendsDetailViewController alloc]init];
     //ContactBean *bean = [data objectAtIndex:indexPath.row];
-    ContactBean *bean = [ContactBean ContactBeanWithCommonFriendBean:  [data objectAtIndex:indexPath.row]];
+    ContactBean *bean = [ContactBean ContactBeanWithCommonFriendBean:[data objectAtIndex:indexPath.row]];
     detail.friendId = bean.uid;
     //FriendObject*frien=[friends objectAtIndex:indexPath.row];
     //取出 friends中的对象传递给detail列表用来显示 下面代码可以替换   

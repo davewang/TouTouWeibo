@@ -62,6 +62,7 @@
     result.proviceName = currentProviceName;
     result.cityName = currentCityName;
     result.findType=findType;
+    
     [self.navigationController pushViewController:result animated:YES];
    // self.hidesBottomBarWhenPushed = NO;
     [result release];
