@@ -10,6 +10,7 @@
 #import "FoundResultViewController.h"
 @implementation FindFriendByTypeViewController
 @synthesize findType;
+@synthesize currentSearchText;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -18,7 +19,11 @@
     }
     return self;
 }
+-(void)actionBack{
+ self.hidesBottomBarWhenPushed = NO;
+    [super actionBack];
 
+}
 - (void)didReceiveMemoryWarning
 {
     // Releases the view if it doesn't have a superview.
@@ -26,33 +31,44 @@
     
     // Release any cached data, images, etc that aren't in use.
 }
-- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
-    NSLog(@"type==%@",findType);
-     
-    FoundResultViewController *result= [[FoundResultViewController alloc]init];
-    self.hidesBottomBarWhenPushed = YES;
-    result.findType=findType;
-    NSArray *array=[[NSArray alloc]initWithObjects:@"景李军",@"张三",@"李四",@"王五",@"李四",@"王五",nil];
-    result._findFriendsList=array;
-    
-    [self.navigationController pushViewController:result animated:YES];
-    self.hidesBottomBarWhenPushed = NO;
-    [array release];
-    [result release];
-}
 -(void)swichTap{
-
+    if (self.currentSearchText&&self.currentSearchText.length>0) {
+        
+    
     FoundResultViewController *result= [[FoundResultViewController alloc]init];
     self.hidesBottomBarWhenPushed = YES;
     result.findType=findType;
     ///NSArray *array=[[NSArray alloc]initWithObjects:@"景李军",@"张三",@"李四",@"王五",@"李四",@"王五",nil];
     //result._findFriendsList=array;
-    
+    result.findValues = currentSearchText;
     [self.navigationController pushViewController:result animated:YES];
-    self.hidesBottomBarWhenPushed = NO;
- //   [array release];
+   // self.hidesBottomBarWhenPushed = NO;
+    //   [array release];
     [result release];
+    }
 }
+-(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
+{
+ self.currentSearchText = searchText;
+    
+}
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+    NSLog(@"type==%@",findType);
+   
+//     
+//    FoundResultViewController *result= [[FoundResultViewController alloc]init];
+//    self.hidesBottomBarWhenPushed = YES;
+//    result.findType=findType;
+//    NSArray *array=[[NSArray alloc]initWithObjects:@"景李军",@"张三",@"李四",@"王五",@"李四",@"王五",nil];
+//    result._findFriendsList=array;
+//    
+//    [self.navigationController pushViewController:result animated:YES];
+//    self.hidesBottomBarWhenPushed = NO;
+//    [array release];
+//    [result release];
+    [self swichTap];
+}
+
 - (void)setNavBar
 {
     if ([findType isEqualToString:@"name"]) {

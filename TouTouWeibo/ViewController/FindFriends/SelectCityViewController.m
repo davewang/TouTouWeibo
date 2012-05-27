@@ -54,31 +54,30 @@
 //	[sheet release]; 
     [pickerView show];
 }
+-(void)swichTap
+{
 
+    FoundResultViewController *result= [[FoundResultViewController alloc]init];
+    self.hidesBottomBarWhenPushed = YES;
+    result.proviceName = currentProviceName;
+    result.cityName = currentCityName;
+    result.findType=findType;
+    [self.navigationController pushViewController:result animated:YES];
+   // self.hidesBottomBarWhenPushed = NO;
+    [result release];
+}
 -(void)didSelectIndustryPicker:(NSArray *)_array{
     if (_array) {
         if ([_array count]>1) {
-//            currentoftenAddressOfProvinceId = [[_array objectAtIndex:0] objectForKey:@"id"];
-//            currentOftenAddressId = [[_array objectAtIndex:1] objectForKey:@"id"];
-            
-            FoundResultViewController *result= [[FoundResultViewController alloc]init];
-            self.hidesBottomBarWhenPushed = YES;
             cityLabel.text=[[_array objectAtIndex:0] objectForKey:@"name"];
             districtLabel.text=[[_array objectAtIndex:1] objectForKey:@"name"];
-            result.proviceName=[[_array objectAtIndex:0] objectForKey:@"name"];
-            result.cityName=[[_array objectAtIndex:1] objectForKey:@"name"];
-            result.findType=findType;
-            [self.navigationController pushViewController:result animated:YES];
-            self.hidesBottomBarWhenPushed = NO;
-            [result release];
-
-//            currentRegion = [[NSString stringWithFormat:@"%@ %@",[[_array objectAtIndex:0] objectForKey:@"name"],[[_array objectAtIndex:1] objectForKey:@"name"]]retain];
-//            NSLog(@"currentRegion = %@",currentRegion);
-//            NSLog(@"currentoftenAddressOfProvinceId = %@ ,currentOftenAddressId = %@",currentoftenAddressOfProvinceId,currentOftenAddressId);
-//            [tableView reloadData];
+            currentProviceName =[[_array objectAtIndex:0] objectForKey:@"name"];
+            currentCityName=[[_array objectAtIndex:1] objectForKey:@"name"];
+            
+ 
         };
     }
-    NSLog(@"_array = %@",_array);
+    //NSLog(@"_array = %@",_array);
 }
 
 #pragma mark - View lifecycle
@@ -89,7 +88,7 @@
     [self.navigationController.navigationBar setNeedsDisplay1];
     [self setViewControllerTitle:@"按城市查找"];
     cityLabel = [[UILabel alloc] initWithFrame:CGRectMake(30,10, 260, 50)];
-    cityLabel.text=@"深圳";
+    cityLabel.text=@"北京";
     cityLabel.font=[UIFont boldSystemFontOfSize:24];
     cityLabel.textAlignment=UITextAlignmentCenter;
     [[cityLabel layer] setCornerRadius:8.0f];
@@ -100,10 +99,11 @@
     [[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(labelTap)] autorelease];
     [cityLabel addGestureRecognizer:tapGesture];
     [self.view addSubview:cityLabel];
-    
+    currentProviceName = @"北京";
+    currentCityName =@"东城区";
     
     districtLabel = [[UILabel alloc] initWithFrame:CGRectMake(30,70, 260, 50)];
-    districtLabel.text=@"福田区";
+    districtLabel.text=@"东城区";
     districtLabel.textAlignment=UITextAlignmentCenter;
     districtLabel.font=[UIFont boldSystemFontOfSize:24];
     [[districtLabel layer] setCornerRadius:8.0f];
@@ -117,6 +117,8 @@
     [self leftBackBtnWithAction:@selector(actionBack)];
     pickerView = [[IndustryPickerView alloc] initWithFrame:CGRectMake(0, 0, 320, 480)];
     pickerView.industryDelegate=self;
+    
+    [self rightBackBtnWithBackgroupImageName:@"navigationbar_button_background" withTitle:@"查找" andAction:@selector(swichTap)];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  

@@ -12,7 +12,8 @@
 @synthesize map;
 @synthesize infromationArr;
 @synthesize mapPinView;
-
+@synthesize friendType;
+@synthesize searchText;
 
 #define GOOGLEMAPURL @"https://maps.googleapis.com/maps/api/place/search/json?location=%@,%@&radius=%d&types=%@&sensor=false&key=AIzaSyDJ1phmkoBRxWvkP6WnMgnLJFyS4CCwhKE"
 

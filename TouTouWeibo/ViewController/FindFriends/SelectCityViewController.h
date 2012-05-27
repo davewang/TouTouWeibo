@@ -17,6 +17,8 @@
     UILabel *districtLabel;
     NSString *findType;
     IndustryPickerView *pickerView;
+    NSString *currentProviceName;
+     NSString *currentCityName;
 }
 @property(retain,nonatomic)UIPickerView *cityListPicker;
 @property(retain,nonatomic)UILabel *cityLabel;

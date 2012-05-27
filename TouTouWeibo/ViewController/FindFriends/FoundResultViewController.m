@@ -119,6 +119,8 @@
         [self setViewControllerTitle:@"同城班级"];
     }else if ([findType isEqualToString:@"2"]) {
         [self setViewControllerTitle:@"同城校友"];
+    }else{
+        [self setViewControllerTitle:@"按城市查找"];
     }
     
     UIButton *locatedBtn=[UIButton buttonWithType:UIButtonTypeCustom];
@@ -138,25 +140,15 @@
     currentPageNo = 1;
     data = [[NSMutableArray alloc] initWithCapacity:2];
     [self showWait:YES];
-//    [self performSelector:@selector(showWait:) withObject:YES afterDelay:0.3];
-//    
-//    imageNames = [[NSArray alloc] initWithObjects:@"lbs_nearbypeople_popuphint_location_icon.png",@"settings_accounts_icon.png",@"settings_accounts_icon.png",@"settings_browsemode_icon.png",@"settings_about_icon.png",@"settings_signout_icon.png", nil]; 
-    
-    // selectd 0 178 238
-    // self.tableView.separatorColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"group_picker_cell_separator.png"]];
-    // self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
-    
-    //UITableViewCellSeparatorStyle
-    // Do any additional setup after loading the view from its nib.
-    
-    // currentCheckInteger = [GlobalInfo sharedGlobalInfo].styleType ;
-    //    NSMutableArray *array=[[NSMutableArray alloc] initWithObjects:@"查找同城好友",@"查找同城班级",@"查找同城校友",nil];
-    //    //self._findFriendsList=array;
-    //    [array release];
+ 
 }
 
 -(void)loadCurrentViewData{
     NSLog(@"currentPageNo = %d",currentPageNo);
+    
+    NSLog(@"proviceName = %@",proviceName);
+    
+    NSLog(@"cityName = %@",cityName);
     if ([findType isEqualToString:@"name"]) {
         friendList=[CommonUtils loadFriendObjectWithFriendType:findValues cityId:@"" pageNo:[NSString stringWithFormat:@"%d",currentPageNo] pageSize:@"10" friendType:@"0"];
        // [CommonUtils ShowWaitingView:NO];
@@ -309,7 +301,7 @@
     ContactBean *bean = [ContactBean ContactBeanWithCommonFriendBean:  [data objectAtIndex:indexPath.row]];
     cell.name.text = bean.name;
     cell.className.text = bean.banji;
-    cell.mobileNumber.text = bean.telphone;
+    //cell.mobileNumber.text = bean.telphone;
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     [cell setHeadUrl:bean.image];
     [cell setSex:bean.sex];
@@ -325,23 +317,25 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
    FriendsDetailViewController *detail=[[FriendsDetailViewController alloc]init];
-    
+    //ContactBean *bean = [data objectAtIndex:indexPath.row];
+    ContactBean *bean = [ContactBean ContactBeanWithCommonFriendBean:  [data objectAtIndex:indexPath.row]];
+    detail.friendId = bean.uid;
     //FriendObject*frien=[friends objectAtIndex:indexPath.row];
     //取出 friends中的对象传递给detail列表用来显示 下面代码可以替换   
-    FriendObject *frien=[[FriendObject alloc] init];
-    frien.userName=@"景李军";
-    frien.userSex=@"男";
-    frien.userCity=@"宝鸡";
-    frien.workName=@"软件开发";
-    frien.className=@"计算机";
-    frien.qqNo=@"123456";
-    frien.msnNo=@"123238@msn.com";
-    frien.introduction=@"222222";
-    frien.companyName=@"腾讯股份公司";
-    frien.companyAddress=@"南山区科技园路1号";
-    frien.companyTel=@"0755－82386764";
-    
-    detail.friendObject=frien;
+//    FriendObject *frien=[[FriendObject alloc] init];
+//    frien.userName=@"景李军";
+//    frien.userSex=@"男";
+//    frien.userCity=@"宝鸡";
+//    frien.workName=@"软件开发";
+//    frien.className=@"计算机";
+//    frien.qqNo=@"123456";
+//    frien.msnNo=@"123238@msn.com";
+//    frien.introduction=@"222222";
+//    frien.companyName=@"腾讯股份公司";
+//    frien.companyAddress=@"南山区科技园路1号";
+//    frien.companyTel=@"0755－82386764";
+//    
+//    detail.friendObject=frien;
     self.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:detail animated:YES];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];

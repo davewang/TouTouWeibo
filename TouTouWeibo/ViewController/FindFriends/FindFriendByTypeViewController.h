@@ -14,7 +14,9 @@
 {
     NSString *findType;
     IBOutlet UISearchBar *searchBar;
+    NSString *currentSearchText;
 } 
 @property (nonatomic,retain) NSString *findType;
+@property (nonatomic,retain) NSString *currentSearchText;
 
 @end
