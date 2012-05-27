@@ -85,7 +85,7 @@
 #define CONTACTS_FRIENTBYCITY_INFO_URL @ "http://119.57.54.48/friend.do?act=phoneCommonFindFriendByCity"
 #define CONTACTS_FRIENTMAPTYPE_INFO_URL @ "http://119.57.54.48/friend.do?act=phoneCommonFindMapByCity"
 #define CONTACTS_FRIENTLISTBYCITY_INFO_URL @ "http://119.57.54.48/friend.do?act=phoneFriendListByCity"
-
+#define SHAKE_LIST_INFO_URL @ "http://119.57.54.48/friend.do?act=phoneUserListSayHello"
 
 //•	点击获取验证码URL：registeruser.do?act=sendCode
 //	点击注册URL：registeruser.do?act=registerUser
