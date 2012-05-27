@@ -218,7 +218,7 @@
     MapModeViewController *mapview = [[MapModeViewController alloc] init];
     self.hidesBottomBarWhenPushed =YES;
     [self.navigationController pushViewController:mapview animated:YES];
-        self.hidesBottomBarWhenPushed =NO;
+       // self.hidesBottomBarWhenPushed =NO;
     [mapview release];
 }
 - (CGFloat)tableView:(UITableView *)_tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -235,7 +235,7 @@
     friendsDetail.friendId = bean.uid;
     self.hidesBottomBarWhenPushed =YES;
     [self.navigationController pushViewController:friendsDetail animated:YES];
-    self.hidesBottomBarWhenPushed =NO;
+    //self.hidesBottomBarWhenPushed =NO;
     [friendsDetail release];
 	
 }
