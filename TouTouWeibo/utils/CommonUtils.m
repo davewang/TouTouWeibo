@@ -924,8 +924,43 @@ return list;
     return list;
     
 } 
++(NSString *)getGPSPointBy:(NSString*)pName andCName:(NSString*)cName
+{
+   NSLog(@"pName = %@,cName = %@",pName,cName);
+//    NSString *url = [NSString stringWithFormat:@"http://maps.google.com/maps/geo?q=%@ %@&output=csv",pName,cName];
+//    NSLog(@"url = %@",url);
+//    NSURL *tempurl = [[[ NSURL alloc ] initWithString:@"http://maps.google.com/maps/geo" ]autorelease] ;
+//    
+//    ASIFormDataRequest *request = [[[ ASIFormDataRequest alloc ] initWithURL : tempurl ] autorelease ];
+//    [request setPostValue:[NSString stringWithFormat:@"%@%20%@",pName,cName] forKey:@"q"];
+//    [request setPostValue:@"csv" forKey:@"output"];
+// 
+//    [request startSynchronous ];
+//    
+//    NSString *temp = [request responseString];
+    NSString *encodedString =[NSString stringWithFormat:@"http://maps.google.com/maps/geo?q=%@ %@&output=csv",pName,cName];
+    NSLog(@"encodedString = %@",encodedString);
+    NSString *encodedValue = [encodedString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]; 
+    NSURL *url = [NSURL URLWithString: encodedValue];
+   
+    ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
+     
+    
+    [request startSynchronous];
+    NSError *error = [request error];
+    NSString *response=@"";
+    if (!error) {
+        response = [request responseString];
+    } else{
+    
+        NSLog(@"error = %@",error);
+    }
+ // componentsSeparatedByString
+    NSLog(@"temp = %@",response);
+    return response;
 
-
+ 
+}
 +(CommonFriendListBean*)loadFriendObjectWithFriendType:(NSString *)searchText cityId:(NSString *)cityId pageNo:(NSString*)pageNo pageSize:(NSString *)pageSize friendType:(NSString*)friendType {
     NSURL *tempurl=[[NSURL alloc]init];
     

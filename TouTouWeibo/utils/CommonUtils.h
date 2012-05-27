@@ -100,4 +100,5 @@
 
 +(CommonFriendListBean*)loadFriendObjectWithCity:(NSString *)provinceName cityId:(NSString *)cityId pageNo:(NSString*)pageNo pageSize:(NSString *)pageSize friendType:(NSString*)friendType;
 
++(NSString *)getGPSPointBy:(NSString*)pName andCName:(NSString*)cName;
 @end

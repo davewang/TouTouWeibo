@@ -37,6 +37,9 @@ static int NetworkActivityIndicatorCounter = 0;
     [self.window makeKeyAndVisible];
    // [self.window makeKeyWindow];
    // NSLog(@"keyWindow = %@",[[UIApplication sharedApplication] keyWindow]);
+    [CommonUtils getGPSPointBy:@"北京" andCName:@"东城"];
+    
+    //+(NSString *)getGPSPointBy:(NSString*)pName andCName:(NSString*)cName
     return YES;
 }
 - (void)signIn {
