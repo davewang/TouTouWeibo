@@ -8,13 +8,15 @@
 
 #import "MapModeViewController.h"
 #import "ContactsUIViewController.h"
+#import "FoundResultViewController.h"
 @implementation MapModeViewController
 @synthesize map;
 @synthesize infromationArr;
 @synthesize mapPinView;
 @synthesize friendType;
 @synthesize searchText;
-
+@synthesize proviceName;
+@synthesize cityName;
 #define GOOGLEMAPURL @"https://maps.googleapis.com/maps/api/place/search/json?location=%@,%@&radius=%d&types=%@&sensor=false&key=AIzaSyDJ1phmkoBRxWvkP6WnMgnLJFyS4CCwhKE"
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -101,6 +103,8 @@
         list = [CommonUtils loadContactForMapWithUserId:[GlobalInfo sharedGlobalInfo].userId andCityId:nil];
     }else if([friendType isEqualToString:@"city"]){
         
+         
+        
     }
     else{
         if ([friendType isEqualToString:@"name"]) {
@@ -128,7 +132,25 @@
         [array addObject:anno];
     }
        [map addAnnotations:array];
-    
+    if ([friendType isEqualToString:@"city"]) {
+      NSString * gpsstr =  [CommonUtils getGPSPointBy:self.proviceName andCName:self.cityName];
+        NSArray *_array =[gpsstr  componentsSeparatedByString:@","];
+        NSString *_lat = [_array objectAtIndex:2];
+        NSString *_lon = [_array objectAtIndex:3];
+        CLLocationCoordinate2D anno2;
+        CGFloat latF = [_lat floatValue];
+        CGFloat lonF = [_lon floatValue];
+        anno2.latitude = latF;
+        anno2.longitude = lonF;
+        MapAnnoData * _anno = [[MapAnnoData alloc]initWithCoodinate:anno2];
+        
+        _anno.title = [NSString stringWithFormat:@"%@ %@人",self.proviceName, self.cityName];//[info.counts description];
+        //anno.cityId = info.cId;
+        [array addObject:_anno];
+        
+        [map addAnnotations:array];
+        
+    }
 
 //     ASIHTTPRequest * request = [[ASIHTTPRequest alloc]initWithURL:askUrl];
 //    request.delegate = self;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
@@ -255,14 +277,39 @@
 - (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
 { 
     if ([view.annotation isKindOfClass: [MapAnnoData class]]) {
-        MapAnnoData *mapAn =  (MapAnnoData*)view.annotation;
-        ContactsUIViewController *contacts = [[ContactsUIViewController alloc] init];
         
-        contacts.cityId = mapAn.cityId;
-        self.hidesBottomBarWhenPushed=YES;
-        [self.navigationController pushViewController:contacts animated:YES];
-         //self.hidesBottomBarWhenPushed=NO;
-        [contacts release];
+        
+        UIViewController *presentedViewController = [[self.navigationController viewControllers] objectAtIndex:[self.navigationController viewControllers].count-2];
+        NSLog(@"presentedViewController = %@",presentedViewController);
+        if ([presentedViewController isKindOfClass: [ContactsUIViewController class]]) {
+            MapAnnoData *mapAn =  (MapAnnoData*)view.annotation;
+            ContactsUIViewController *contacts = [[ContactsUIViewController alloc] init];
+            
+            contacts.cityId = mapAn.cityId;
+            self.hidesBottomBarWhenPushed=YES;
+            [self.navigationController pushViewController:contacts animated:YES];
+            //self.hidesBottomBarWhenPushed=NO;
+            [contacts release];  
+        }
+        if ([presentedViewController isKindOfClass:[FoundResultViewController class]]) {
+            
+            FoundResultViewController *parent = (FoundResultViewController*)presentedViewController;
+            if ([parent.findType isEqualToString:@"city"]) {
+                [self actionBack];
+                return;
+            }else{
+            MapAnnoData *mapAn =  (MapAnnoData*)view.annotation;
+            FoundResultViewController *find = [[FoundResultViewController alloc] init];
+            find.findType=parent.findType;
+            find.findValues = parent.findValues;
+            find.cityId = mapAn.cityId;
+            self.hidesBottomBarWhenPushed=YES;
+            [self.navigationController pushViewController:find animated:YES];
+            //self.hidesBottomBarWhenPushed=NO;
+            [find release];  
+            }
+        }
+      
     }
    
 }

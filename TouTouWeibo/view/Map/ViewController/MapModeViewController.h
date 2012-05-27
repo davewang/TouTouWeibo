@@ -26,6 +26,8 @@
     CLLocationManager * locationManager;
      NSString * friendType;
      NSString * searchText;
+     NSString *proviceName;
+    NSString *cityName;
 }
 @property(nonatomic,retain)MKMapView * map;
 @property(nonatomic,retain)NSMutableArray * infromationArr;
@@ -35,5 +37,7 @@
 -(void)connectForLocation;//With:(NSString *)latStr And:(NSString *)lonStr And:(NSString *)radius And:(NSString *)types;
 @property(nonatomic,retain)NSString * friendType;
 @property(nonatomic,retain)NSString * searchText;
+@property(nonatomic,retain)NSString * proviceName;
+@property(nonatomic,retain)NSString * cityName;
 
 @end
