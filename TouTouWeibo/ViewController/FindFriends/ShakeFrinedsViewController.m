@@ -62,6 +62,8 @@
         [parseFailedAlertView release];
         locationState=NO;
     }
+    AccelerometerHelper * accelerometer = [AccelerometerHelper sharedInstance];
+    accelerometer.delegate=self;
 }
 
 -(void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation {
@@ -115,8 +117,8 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeNavFrame:) name:@"KHIDENAV" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeNavFrame:) name:@"KSHOWNAV" object:nil];
     
-    AccelerometerHelper * accelerometer = [AccelerometerHelper sharedInstance];
-    accelerometer.delegate=self;
+//    AccelerometerHelper * accelerometer = [AccelerometerHelper sharedInstance];
+//    accelerometer.delegate=self;
     
     shakeView.hidden=YES;
     failLabel.hidden=YES;
@@ -143,9 +145,16 @@
 {
     if ([notification.name isEqualToString:@"KHIDENAV"]) {
         self.navigationController.navigationBarHidden=NO;
+        AccelerometerHelper * accelerometer = [AccelerometerHelper sharedInstance];
+        accelerometer.delegate=self;
+
+        
         
     }else if([notification.name isEqualToString:@"KSHOWNAV"]){
        self.navigationController.navigationBarHidden=YES; 
+        AccelerometerHelper * accelerometer = [AccelerometerHelper sharedInstance];
+        accelerometer.delegate=nil;
+
     }
 }
 -(void)shake
