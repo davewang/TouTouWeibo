@@ -97,6 +97,7 @@
     [self setViewControllerTitle:@"摇一摇"];   
     [self leftBackBtnWithAction:@selector(actionBack)];   
     UITableView *_tableView=[[UITableView alloc] initWithFrame:CGRectMake(0, 0, 320, 380) style:UITableViewStylePlain];
+    _tableView.tag=100;
     _tableView.delegate=self;
     _tableView.dataSource=self;
     drawer = [[DrawerView alloc] initWithView:_tableView parentView:self.view];
@@ -154,11 +155,11 @@
         locationView.hidden=YES;
         shakeView.hidden=NO;
         [UIView beginAnimations:@"shake" context:NULL];
-        [UIView setAnimationDuration:1];
+        [UIView setAnimationDuration:0.8];
         upView.frame=CGRectMake(0, -70, 320, 146);
         downView.frame=CGRectMake(0, 146+70, 320, 270);
         [UIView commitAnimations];
-        [self performSelector:@selector(shakePhone) withObject:nil afterDelay:1];
+        [self performSelector:@selector(shakePhone) withObject:nil afterDelay:0.5];
         
     }
 
@@ -167,7 +168,7 @@
 {
     failLabel.hidden=YES;
     [UIView beginAnimations:@"shake" context:NULL];
-    [UIView setAnimationDuration:1];
+    [UIView setAnimationDuration:0.8];
     upView.frame=CGRectMake(0, 0, 320, 146);
     downView.frame=CGRectMake(0, 146, 320, 270);
     [UIView commitAnimations];
@@ -177,9 +178,14 @@
     //发请求 获取数据
     
     ShakeListBean * shakeList=[CommonUtils loadShakePersonListBeanUserId:[GlobalInfo sharedGlobalInfo].userId];
+    NSLog(@"%@",shakeList.shakeList);
     
     self.shakeArray = shakeList.shakeList;
+    NSLog(@"%d",[shakeList.shakeList count]);
+    NSLog(@"shake array =%d",[shakeArray count]);
     if ([shakeArray count]!=0) {
+        UITableView * table = (UITableView *)[self.view viewWithTag:100];
+        [table reloadData];
         [drawer shakeFinished];
     }else{
         failLabel.hidden=NO;
@@ -190,6 +196,8 @@
 {
     ShakeListBean * shakeList2 = [CommonUtils shakeHistoryWithUserId:[GlobalInfo sharedGlobalInfo].userId];
     self.shakeArray=shakeList2.shakeList;
+    UITableView * table = (UITableView *)[self.view viewWithTag:100];
+    [table reloadData];
     
 }
 
@@ -230,10 +238,10 @@
     }  
         ShakeBean *bean = [shakeArray objectAtIndex:indexPath.row];
         cell.name.text = bean.userName;
+    
     //    cell.className.text = bean.banji;
     //    cell.mobileNumber.text = bean.telphone;
-    //    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    //    [cell setHeadUrl:bean.image];
+       [cell setHeadUrl:bean.userPhoto];
     //    [cell setSex:bean.sex]; 
         cell.selectionStyle=UITableViewCellSelectionStyleNone;
         cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
@@ -241,6 +249,8 @@
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    //推出详情页
+    
 }
 - (void)viewDidUnload
 {

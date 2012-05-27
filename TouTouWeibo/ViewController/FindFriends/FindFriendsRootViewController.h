@@ -15,6 +15,7 @@
     NSArray *imageNames;
     NSMutableArray *_findFriendsVCList1;
     NSMutableArray *_findFriendsVCList2;
+    UIButton * headButton;
 } 
 
 @property(retain,nonatomic) NSArray *_findFriendsVCList1;

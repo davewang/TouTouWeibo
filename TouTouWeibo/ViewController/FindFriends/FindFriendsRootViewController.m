@@ -11,7 +11,7 @@
 #import "FinderInCityViewController.h"
 #import "FindFriendByTypeViewController.h"
 #import "SelectCityViewController.h"
-
+#import "SayHelloViewController.h"
 
 @implementation FindFriendsRootViewController
 
@@ -46,13 +46,43 @@
     [_findFriendsVCList2 release];
     [_tableView release];
 }
+-(void) sayHelloListViewController
+{
+    SayHelloViewController * sayController = [[SayHelloViewController alloc] init];
+    [self.navigationController pushViewController:sayController animated:YES];
+    [SayHelloViewController release];
+}
+-(void)setViewControllerCustomTitle{
+    
+    UIView * titleView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 100, 40)];
+    titleView.backgroundColor=[UIColor clearColor];
+    
+    UILabel * titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 60, 40)];
+    titleLabel.backgroundColor=[UIColor clearColor];
+    titleLabel.textColor=NAV_TITLE_COLOR;
+    titleLabel.text=@"找朋友";
+    titleLabel.font=[UIFont systemFontOfSize:NAV_TITLE_SIZE];
+    [titleView addSubview:titleLabel];
+    [titleLabel release];
+    
+    headButton = [[UIButton alloc] initWithFrame:CGRectMake(60, 5,40, 35)];
+    [headButton addTarget:self action:@selector(sayHelloListViewController) forControlEvents:UIControlEventTouchUpInside];
+    headButton.backgroundColor=[UIColor redColor];
+    //        [headButton setImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
+    [headButton setTitle:@"12" forState:UIControlStateNormal];
+    //        headButton.hidden=YES;
+    [titleView addSubview:headButton];
+    self.navigationItem.titleView = titleView;
+    [titleView release];
+}
+
 #pragma mark - View lifecycle
 
 - (void)viewDidLoad
 {
     [self.navigationController.navigationBar setNeedsDisplay1];
     [super viewDidLoad]; 
-    [self setViewControllerTitle:@"找朋友"];
+    [self setViewControllerCustomTitle];
     [self leftBackBtnWithAction:@selector(actionBack)];
     NSMutableArray *array=[[NSMutableArray alloc] initWithObjects:@"摇一摇",@"同城查找",nil];
     self._findFriendsVCList1=array;
