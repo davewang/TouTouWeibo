@@ -12,9 +12,11 @@
 {
     int pageNo;
     int sumPage;
+    int totals;
 }
 @property int pageNo;
 @property int sumPage;
+@property int totals;
 
 +(Page*)PageWithNSDictionary:(NSDictionary*)_dic;
 @end

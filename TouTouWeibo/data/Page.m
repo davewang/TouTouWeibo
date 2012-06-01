@@ -10,13 +10,14 @@
 
 @implementation Page
 @synthesize pageNo,sumPage;
-
+@synthesize totals;
 +(Page*)PageWithNSDictionary:(NSDictionary*)_dic{
 
     Page *page = [[Page alloc] init];
     
     page.pageNo = [[_dic objectForKey:@"pageNo"] intValue];
     page.sumPage = [[_dic objectForKey:@"sumPage"] intValue];
+    page.totals = [[_dic objectForKey:@"totals"] intValue];
     return page;
 }
 @end

@@ -25,7 +25,7 @@
         
         return GenderUnknow;
     }
-    
+    return GenderUnknow;
 }
 
 +(AccountInfo*)AccountWithFriendObject:(FriendObject*)_dic{
