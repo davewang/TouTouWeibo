@@ -9,6 +9,7 @@
 #import "ContactRootUIViewController.h"
 #import "ContactsUIViewController.h"
 #import "FindFriendsRootViewController.h"
+#import "MyClassInfoListViewController.h"
 @implementation ContactRootUIViewController
 @synthesize tableView=_tableView;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -120,6 +121,14 @@
     }else if(indexPath.section==1 &&indexPath.row == 0)
     {
         FindFriendsRootViewController *root = [[FindFriendsRootViewController alloc] init];
+        self.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:root animated:YES];
+        self.hidesBottomBarWhenPushed = NO;
+        [root release];  
+        
+    } else if(indexPath.section==0 &&indexPath.row == 0)
+    {
+        MyClassInfoListViewController *root = [[MyClassInfoListViewController alloc] init];
         self.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:root animated:YES];
         self.hidesBottomBarWhenPushed = NO;

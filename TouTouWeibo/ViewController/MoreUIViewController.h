@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "CostomNavgationBar.h"
 #import "ChangePasswordUIViewController.h"
+#import "AccountManagerViewController.h"
 @interface MoreUIViewController : BaseUIViewController<UIAlertViewDelegate,UITableViewDelegate,UITableViewDataSource>
 {
     NSArray *data;

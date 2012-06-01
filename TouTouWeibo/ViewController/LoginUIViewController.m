@@ -94,6 +94,8 @@
         Bean *bean = [Bean BeanWithNSDictionary:dictionary];
         if ([bean.err intValue]==0) {
             [GlobalInfo sharedGlobalInfo].userId = userId;
+              
+            [CommonUtils saveLoginInfoByUserName:userNameField.text andPassword:passwordField.text];
             
             [[AppDelegate getAppDelegate] signIn];
         }else{

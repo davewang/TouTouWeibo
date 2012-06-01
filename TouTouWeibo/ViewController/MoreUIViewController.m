@@ -9,6 +9,7 @@
 #import "MoreUIViewController.h"
 #import "DisplayModeSettingUIViewController.h"
 #import "CheckBoxView.h"
+#import "AboutUIViewControlloer.h"
 #define SOUND_ENABLE_TAG  1111   
 @implementation MoreUIViewController
 @synthesize tableView=_tableView;
@@ -131,9 +132,27 @@
        DisplayModeSettingUIViewController *displayModeView = [[DisplayModeSettingUIViewController alloc ] init ];
         self.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:displayModeView animated:YES];
-          self.hidesBottomBarWhenPushed = NO;
+        self.hidesBottomBarWhenPushed = NO;
         [displayModeView release];
-    }else if(indexPath.row ==5){
+    }else if(indexPath.row == 4){
+        AboutUIViewControlloer *about = [[AboutUIViewControlloer alloc] init];
+        self.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:about animated:YES];
+        self.hidesBottomBarWhenPushed = NO;
+        [about release];
+    
+    }else if(indexPath.row == 2){
+     
+        AccountManagerViewController *changepasswd =  [[AccountManagerViewController alloc ] init];
+        
+        //  [self.navigationController pushViewController:changepasswd animated:YES];
+        
+        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:changepasswd];
+        [changepasswd release];
+        [self.navigationController presentModalViewController:nav animated:YES];
+        [nav release];
+    }
+    else if(indexPath.row ==5){
     
     
         UIAlertView *arertView =[[UIAlertView alloc] initWithTitle:@"提示" message:@"您确认要推出吗？"  delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确认", nil];
