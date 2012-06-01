@@ -26,6 +26,7 @@
 #import "ShakeListBean.h"
 #import "CommonFriendListBean.h"
 @class ReplyList;
+@class ClassInfoList;
 @interface CommonUtils : NSObject
 {
 
@@ -101,4 +102,6 @@
 +(CommonFriendListBean*)loadFriendObjectWithCity:(NSString *)provinceName cityId:(NSString *)cityId pageNo:(NSString*)pageNo pageSize:(NSString *)pageSize friendType:(NSString*)friendType;
 
 +(NSString *)getGPSPointBy:(NSString*)pName andCName:(NSString*)cName;
+
++(ClassInfoList*)loadClassInfoList:(int)page;
 @end

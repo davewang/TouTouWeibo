@@ -13,6 +13,7 @@
 #import "ReplyList.h"
 #import "SinoNetMBProgressHUD.h"
 #import "GroupList.h"
+#import "ClassInfoList.h"
 @implementation CommonUtils
 
 static UIWindow * awindow;
@@ -549,7 +550,34 @@ return list;
     return list;
     
 }
-
++(ClassInfoList*)loadClassInfoList:(int)page{
+    
+    NSURL *tempurl = [[[ NSURL alloc ] initWithString:MY_CLASS_LIST  ] autorelease ];
+    
+    ASIFormDataRequest *request = [[[ ASIFormDataRequest alloc ] initWithURL : tempurl ] autorelease ];
+    
+    //[request setPostValue:@"9" forKey:@"type"];
+    [request setPostValue:[NSString stringWithFormat:@"%d",page] forKey:@"pageNo"];
+    
+    [request setPostValue:[GlobalInfo sharedGlobalInfo].userId forKey:@"userId"];
+    
+    [request setPostValue:@"10" forKey:@"pageSize"];
+     [request setPostValue:@"1" forKey:@"sortType"];
+    [request setUseCookiePersistence : YES ];
+    // [request setDelegate:self];
+    [request startSynchronous ];
+    NSString *html = [[[NSString alloc]initWithData:[request responseData] encoding:NSUTF8StringEncoding]autorelease];
+    NSData *jsonData = [html dataUsingEncoding:NSUTF8StringEncoding];
+    
+    NSLog(@">>>>>>>>>>>>>>>>>>loadClassInfoList %@",html);
+    NSError *error = nil;
+    NSDictionary *dictionary = [[CJSONDeserializer deserializer] deserializeAsDictionary:jsonData error:&error];
+    
+    ClassInfoList *list = [ClassInfoList ClassInfoListWithNSDictionary:dictionary];
+    
+    
+    return list;
+}
 +(FriendList*)loadFriendList:(int)page{
 
     NSURL *tempurl = [[[ NSURL alloc ] initWithString:FRIENDLIST_URL  ] autorelease ];
@@ -851,7 +879,7 @@ return list;
     NSString *html = [[[NSString alloc]initWithData:[request responseData] encoding:NSUTF8StringEncoding]autorelease];
     NSData *jsonData = [html dataUsingEncoding:NSUTF8StringEncoding];
     
-    NSLog(@">>>>>>>>>>>>>>>>>>loadContactListBean %@",html);
+    NSLog(@">>>>>>>>>>>>>>>>>>saveShakePostionUserId %@",html);
     NSError *error = nil;
     NSDictionary *dictionary = [[CJSONDeserializer deserializer] deserializeAsDictionary:jsonData error:&error];
     NSString * backStr=nil;
@@ -872,7 +900,7 @@ return list;
     NSString *html = [[[NSString alloc]initWithData:[request responseData] encoding:NSUTF8StringEncoding]autorelease];
     NSData *jsonData = [html dataUsingEncoding:NSUTF8StringEncoding];
     
-    NSLog(@">>>>>>>>>>>>>>>>>>loadContactListBean %@",html);
+    NSLog(@">>>>>>>>>>>>>>>>>>deleteShakeHistoryUserId %@",html);
     NSError *error = nil;
     NSDictionary *dictionary = [[CJSONDeserializer deserializer] deserializeAsDictionary:jsonData error:&error];
     NSString * backStr=nil;
@@ -895,7 +923,7 @@ return list;
     NSString *html = [[[NSString alloc]initWithData:[request responseData] encoding:NSUTF8StringEncoding]autorelease];
     NSData *jsonData = [html dataUsingEncoding:NSUTF8StringEncoding];
     
-    NSLog(@">>>>>>>>>>>>>>>>>>loadContactListBean %@",html);
+    NSLog(@">>>>>>>>>>>>>>>>>>shakeHistoryWithUserId %@",html);
     NSError *error = nil;
     NSDictionary *dictionary = [[CJSONDeserializer deserializer] deserializeAsDictionary:jsonData error:&error];
     ShakeListBean *list = [ShakeListBean ShakeListBeanWithNSDictionary:dictionary];
@@ -914,7 +942,7 @@ return list;
     NSString *html = [[[NSString alloc]initWithData:[request responseData] encoding:NSUTF8StringEncoding]autorelease];
     NSData *jsonData = [html dataUsingEncoding:NSUTF8StringEncoding];
     
-    NSLog(@">>>>>>>>>>>>>>>>>>loadContactListBean %@",html);
+    NSLog(@">>>>>>>>>>>>>>>>>>loadShakePersonListBeanUserId %@",html);
     NSError *error = nil;
     NSDictionary *dictionary = [[CJSONDeserializer deserializer] deserializeAsDictionary:jsonData error:&error];
     
@@ -977,8 +1005,15 @@ return list;
     
     [request setPostValue:[GlobalInfo sharedGlobalInfo].userId forKey:@"userId"];
     if ([friendType isEqualToString:@"2"]) {
-        [request setPostValue:searchText forKey:@"provinceName"];
+        NSString *provinceName = [searchText stringByReplacingOccurrencesOfString:@"市" withString:@""];
+        NSString *cityName = [cityId stringByReplacingOccurrencesOfString:@"区" withString:@""];
+        cityName = [cityName stringByReplacingOccurrencesOfString:@"市" withString:@""];
+        NSLog(@"real provinceName = %@",provinceName);
+        NSLog(@"real cityName = %@",cityName);
+        [request setPostValue:provinceName forKey:@"provinceName"];
         [request setPostValue:cityId forKey:@"cityName"];
+        
+        
     }
     else{
         [request setPostValue:searchText forKey:@"searchText"];
@@ -1038,10 +1073,14 @@ return list;
     NSURL *tempurl=[[NSURL alloc]init];
     tempurl=[NSURL URLWithString:CONTACTS_FRIENTLISTBYCITY_INFO_URL];
     ASIFormDataRequest *request = [[[ ASIFormDataRequest alloc ] initWithURL : tempurl ] autorelease ];
-    
+    NSString *_provinceName = [provinceName stringByReplacingOccurrencesOfString:@"市" withString:@""];
+    NSString *_cityName = [cityId stringByReplacingOccurrencesOfString:@"区" withString:@""];
+    _cityName = [_cityName stringByReplacingOccurrencesOfString:@"市" withString:@""];
+    NSLog(@"real provinceName = %@",_provinceName);
+    NSLog(@"real cityName = %@",_cityName);
     [request setPostValue:[GlobalInfo sharedGlobalInfo].userId forKey:@"userId"];
-    [request setPostValue:provinceName forKey:@"provinceName"];
-    [request setPostValue:cityId forKey:@"cityName"];
+    [request setPostValue:_provinceName forKey:@"provinceName"];
+    [request setPostValue:_cityName forKey:@"cityName"];
     [request setPostValue:pageNo forKey:@"pageNo"];
     [request setPostValue:pageSize forKey:@"pageSize"];
     [request setPostValue:friendType forKey:@"findType"];
@@ -1121,7 +1160,8 @@ return list;
 }
 #define USERS_LOGIN_INFO @"USERS_LOGIN_INFO"
 
-#define USERS_LOGIN_USERNAME @"kUserName"
+#define USERS_USERNAME @"kUserName"
+#define USERS_LOGIN_USERNAME @"kUserLoginName"
 
 #define USERS_LOGIN_PASSWORD @"KPassword"
 
@@ -1129,15 +1169,39 @@ return list;
 
     NSUserDefaults *defaultUser = [NSUserDefaults  standardUserDefaults];
     if ([defaultUser objectForKey:USERS_LOGIN_INFO]) {
-        NSDictionary *dict= [defaultUser objectForKey:USERS_LOGIN_INFO];
-        [dict setValue:password forKey:username];
-        [defaultUser setValue:dict forKey:USERS_LOGIN_INFO];
+    
+        NSMutableArray *array= [defaultUser objectForKey:USERS_LOGIN_INFO];
+         
+        for (NSDictionary *_dict in array) {
+            
+            if ([_dict objectForKey:username] ) {
+                [array removeObject:[_dict objectForKey:username]];
+                break;
+            }  
+        }
+        NSMutableDictionary *dict= [[NSMutableDictionary alloc] init]; 
+        [dict setValue:username forKey:USERS_LOGIN_USERNAME];
+        [dict setValue:password forKey:USERS_LOGIN_PASSWORD];
+        [array addObject:[NSMutableDictionary dictionaryWithObject:dict forKey:username]];
+        [dict release];
+        [defaultUser setValue:array forKey:USERS_LOGIN_INFO];
+       
+         
     }else{
-        NSDictionary *dict= [[NSDictionary alloc] init]; 
-        [dict setValue:password forKey:username];
-        [defaultUser setValue:dict forKey:USERS_LOGIN_INFO];
+        NSMutableArray *users = [[NSMutableArray alloc] initWithCapacity:2];
+        NSMutableDictionary *dict= [[NSMutableDictionary alloc] init]; 
+        [dict setValue:username forKey:USERS_LOGIN_USERNAME];
+        [dict setValue:password forKey:USERS_LOGIN_PASSWORD];
+        [users addObject:[NSMutableDictionary dictionaryWithObject:dict forKey:username]];
+        [dict release];
+        [defaultUser setValue:users forKey:USERS_LOGIN_INFO];
+        [users release];
     }
         
+}
++(void)saveUserName:(NSString*)userName withLoginName:(NSString*)loginName{
+
+    
 }
 +(NSDictionary*)getUserInfoForNSUserDefaults
 {
@@ -1165,7 +1229,7 @@ return list;
     NSString *html = [[[NSString alloc]initWithData:[request responseData] encoding:NSUTF8StringEncoding]autorelease];
     NSData *jsonData = [html dataUsingEncoding:NSUTF8StringEncoding];
     
-    NSLog(@">>>>>>>>>>>>>>>>>>loadContactListBean %@",html);
+    NSLog(@">>>>>>>>>>>>>>>>>>loadShakeListBeanUserId %@",html);
     NSError *error = nil;
     NSDictionary *dictionary = [[CJSONDeserializer deserializer] deserializeAsDictionary:jsonData error:&error];
     
