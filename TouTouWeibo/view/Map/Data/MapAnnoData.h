@@ -12,7 +12,6 @@
 @interface MapAnnoData : NSObject
 
 @property(nonatomic,retain)NSString * title;
-
 @property(nonatomic,retain)NSString * cityId;
 @property(nonatomic,retain)NSString * subtitle;
 @property(nonatomic,retain)NSString * image;

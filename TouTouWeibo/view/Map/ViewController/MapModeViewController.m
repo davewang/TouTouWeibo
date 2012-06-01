@@ -17,6 +17,7 @@
 @synthesize searchText;
 @synthesize proviceName;
 @synthesize cityName;
+@synthesize totals;
 #define GOOGLEMAPURL @"https://maps.googleapis.com/maps/api/place/search/json?location=%@,%@&radius=%d&types=%@&sensor=false&key=AIzaSyDJ1phmkoBRxWvkP6WnMgnLJFyS4CCwhKE"
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -127,13 +128,13 @@
         anno2.longitude = lonF;
         MapAnnoData * anno = [[MapAnnoData alloc]initWithCoodinate:anno2];
         
-        anno.title = [NSString stringWithFormat:@"%@ %@人",info.cName,[info.counts description]];//[info.counts description];
+        anno.title = [NSString stringWithFormat:@"%@人",[info.counts description]];//[info.counts description];
         anno.cityId = info.cId;
         [array addObject:anno];
     }
        [map addAnnotations:array];
     if ([friendType isEqualToString:@"city"]) {
-      NSString * gpsstr =  [CommonUtils getGPSPointBy:self.proviceName andCName:self.cityName];
+        NSString * gpsstr =  [CommonUtils getGPSPointBy:self.proviceName andCName:self.cityName];
         NSArray *_array =[gpsstr  componentsSeparatedByString:@","];
         NSString *_lat = [_array objectAtIndex:2];
         NSString *_lon = [_array objectAtIndex:3];
@@ -144,12 +145,29 @@
         anno2.longitude = lonF;
         MapAnnoData * _anno = [[MapAnnoData alloc]initWithCoodinate:anno2];
         
-        _anno.title = [NSString stringWithFormat:@"%@ %@人",self.proviceName, self.cityName];//[info.counts description];
+        _anno.title = [NSString stringWithFormat:@"%@人",self.totals];//[info.counts description];
         //anno.cityId = info.cId;
         [array addObject:_anno];
         
         [map addAnnotations:array];
         
+    }else if([friendType isEqualToString:@"0"]||[friendType isEqualToString:@"1"]||[friendType isEqualToString:@"2"]){
+        NSString * gpsstr =  [CommonUtils getGPSPointBy:self.proviceName andCName:self.cityName];
+        NSArray *_array =[gpsstr  componentsSeparatedByString:@","];
+        NSString *_lat = [_array objectAtIndex:2];
+        NSString *_lon = [_array objectAtIndex:3];
+        CLLocationCoordinate2D anno2;
+        CGFloat latF = [_lat floatValue];
+        CGFloat lonF = [_lon floatValue];
+        anno2.latitude = latF;
+        anno2.longitude = lonF;
+        MapAnnoData * _anno = [[MapAnnoData alloc]initWithCoodinate:anno2];
+        
+        _anno.title = [NSString stringWithFormat:@"%@人",self.totals];//[info.counts description];
+        //anno.cityId = info.cId;
+        [array addObject:_anno];
+        
+        [map addAnnotations:array];
     }
 
 //     ASIHTTPRequest * request = [[ASIHTTPRequest alloc]initWithURL:askUrl];
@@ -294,7 +312,7 @@
         if ([presentedViewController isKindOfClass:[FoundResultViewController class]]) {
             
             FoundResultViewController *parent = (FoundResultViewController*)presentedViewController;
-            if ([parent.findType isEqualToString:@"city"]) {
+            if ([parent.findType isEqualToString:@"city"] ||[parent.findType isEqualToString:@"0"]||[parent.findType isEqualToString:@"1"]||[parent.findType isEqualToString:@"2"]) {
                 [self actionBack];
                 return;
             }else{

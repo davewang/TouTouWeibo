@@ -28,6 +28,7 @@
      NSString * searchText;
      NSString *proviceName;
     NSString *cityName;
+    NSString *totals;
 }
 @property(nonatomic,retain)MKMapView * map;
 @property(nonatomic,retain)NSMutableArray * infromationArr;
@@ -39,5 +40,5 @@
 @property(nonatomic,retain)NSString * searchText;
 @property(nonatomic,retain)NSString * proviceName;
 @property(nonatomic,retain)NSString * cityName;
-
+@property(nonatomic,retain)NSString * totals;
 @end
