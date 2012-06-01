@@ -106,13 +106,14 @@
     [self.view addSubview:drawer];
     
     
-    UIButton * setBt = [UIButton buttonWithType:UIButtonTypeContactAdd];
-    setBt.frame=CGRectMake(0, 0, 40, 30);
-    [setBt setTitle:@"设置" forState:UIControlStateNormal];
-    [setBt setImage:[CommonUtils stretchableImageFromName:@"navigationbar_button_background.png"] forState:UIControlStateNormal];
-    [setBt addTarget:self action:@selector(set) forControlEvents:UIControlEventTouchUpInside];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:setBt];
-    
+//    UIButton * setBt = [UIButton buttonWithType:UIButtonTypeContactAdd];
+//    setBt.frame=CGRectMake(0, 0, 40, 30);
+//    [setBt setTitle:@"设置" forState:UIControlStateNormal];
+//    [setBt setImage:[CommonUtils stretchableImageFromName:@"navigationbar_button_background.png"] forState:UIControlStateNormal];
+//    [setBt addTarget:self action:@selector(set) forControlEvents:UIControlEventTouchUpInside];
+//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:setBt];
+//    
+    [self rightBackBtnWithBackgroupImageName:@"navigationbar_button_background" withTitle:@"设置" andAction:@selector(set)];
     //控制导航的通知
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeNavFrame:) name:@"KHIDENAV" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeNavFrame:) name:@"KSHOWNAV" object:nil];

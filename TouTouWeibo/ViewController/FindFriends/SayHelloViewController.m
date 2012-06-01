@@ -44,7 +44,7 @@
     ShakeListBean * shakeList = [CommonUtils loadShakeListBeanUserId:[GlobalInfo sharedGlobalInfo].userId];
     self.countArray=shakeList.shakeList;
     
-    
+    [self leftBackBtnWithAction:@selector(actionBack)];
 }
 
 - (void)viewDidUnload

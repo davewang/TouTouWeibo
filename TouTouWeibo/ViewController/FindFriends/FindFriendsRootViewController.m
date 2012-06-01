@@ -49,7 +49,9 @@
 -(void) sayHelloListViewController
 {
     SayHelloViewController * sayController = [[SayHelloViewController alloc] init];
+    self.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:sayController animated:YES];
+    self.hidesBottomBarWhenPushed = NO;
     [SayHelloViewController release];
 }
 -(void)setViewControllerCustomTitle{

@@ -29,6 +29,7 @@ LoadMoreTableFooterViewDelegate,EGORefreshTableHeaderDelegate>
     EGORefreshTableHeaderView *_refreshHeaderView;
     BOOL _reloading;
     int currentPageNo;
+    NSString *currentTotals;
 }
 
 @property(retain,nonatomic) NSArray *_findFriendsList;
@@ -38,6 +39,8 @@ LoadMoreTableFooterViewDelegate,EGORefreshTableHeaderDelegate>
 @property(nonatomic,retain) NSString *proviceName;
 @property(nonatomic,retain) NSString *cityName;
 @property(nonatomic,retain) NSString *cityId;
+@property(nonatomic,retain) NSString *currentTotals;
+
 @property(nonatomic,retain) CommonFriendListBean *friendList;
 
 @end

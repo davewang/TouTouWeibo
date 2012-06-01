@@ -107,8 +107,8 @@
     self.hidesBottomBarWhenPushed = YES;
     selectVC.findType=[NSString stringWithFormat:@"%d",indexPath.row];
     NSLog(@"selectVC.findType = %@",selectVC.findType);
-    selectVC.proviceName=@"北京";
-    selectVC.cityName=@"昌平";
+    selectVC.proviceName=proviceName;
+    selectVC.cityName=cityName;
     [self.navigationController pushViewController:selectVC animated:YES];
 //        [self.tableView  deselectRowAtIndexPath:indexPath animated:YES];
    
@@ -117,6 +117,63 @@
 {
     // Return YES for supported orientations
     return NO;
+}
+-(void)viewDidAppear:(BOOL)animated{
+    if ([CLLocationManager locationServicesEnabled]) {
+        locationManager = [[CLLocationManager alloc] init];
+        locationManager.delegate = self;
+        locationManager.distanceFilter = 500;
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+        [locationManager startUpdatingLocation];
+    }
+}
+
+-(void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation {
+    NSLog(@"latitude is %f",[newLocation coordinate].latitude );
+    NSLog(@"longitude is %f",[newLocation coordinate].longitude);
+    [locationManager stopUpdatingLocation];
+//    NSString * lat = [NSString stringWithFormat:@"%f",[newLocation coordinate].latitude];
+//    NSString * log = [NSString stringWithFormat:@"%f",[newLocation coordinate].longitude];
+//    CLLocationCoordinate2D coordinate2;
+//    coordinate2.latitude = [newLocation coordinate].latitude;
+//    
+//    coordinate2.latitude = [newLocation coordinate].longitude;
+     MKReverseGeocoder *geocoder = [[MKReverseGeocoder alloc] initWithCoordinate:[newLocation coordinate]];
+     geocoder.delegate = self;
+    [geocoder start];
+    
+}
+//
+
+-(void)reverseGeocoder:(MKReverseGeocoder *)geocoder didFindPlacemark:(MKPlacemark *)placemark {
+   
+    NSLog(@"now location info is %@--%@",[placemark locality],[placemark subLocality ]);
+    NSString *address = [NSString stringWithFormat:@"%@ %@ %@ %@ %@ %@",placemark.country,placemark.administrativeArea,placemark.locality,placemark.subLocality,
+                                   placemark.thoroughfare,placemark.subThoroughfare];
+    proviceName = [placemark locality];
+    cityName = [placemark subLocality];
+    NSLog(@"经纬度所对应的详细:%@", address);
+    //self.currentCityName = [[placemark locality] substringToIndex:[[placemark locality] length] - 1];
+   // NSLog(@"city name %@",self.currentCityName);
+  //  NSLog(@"default city name %@",[[[ConfigurationService sharedConfigurationService] CityWithSiteId:[GlobalCore shareGlobalCore].currentSiteId] objectForKey:@"city_name"]);
+//    if ( ![self.currentCityName isEqualToString:[[[ConfigurationService sharedConfigurationService] CityWithSiteId:[GlobalCore shareGlobalCore].currentSiteId] objectForKey:@"city_name"]]) {
+//        NSString * locationMessage = [NSString stringWithFormat:@"GPS定位到您当前在%@,需要切换吗？",currentCityName];
+//        UIAlertView *locationConfirmAlert = [[UIAlertView alloc] initWithTitle:@"切换城市" message:locationMessage delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"切换", nil];
+//        locationConfirmAlert.tag = 100;
+//        [locationConfirmAlert show];
+//        [locationConfirmAlert release];
+//    }
+//    
+}
+
+-(void)reverseGeocoder:(MKReverseGeocoder *)geocoder didFailWithError:(NSError *)error {
+//    NSLog(@"reverse geocoder error with error info : %@",error);
+//    NSDictionary * defaultCityInfo = [[ConfigurationService sharedConfigurationService] CityWIthSiteName:@"上海"];
+//    [[NSUserDefaults standardUserDefaults] setObject:defaultCityInfo forKey:@"cityInfo"];
+//    [GlobalCore shareGlobalCore].currentSiteId = [defaultCityInfo objectForKey:@"city_id"];
+//    
+    proviceName =@"北京";
+    cityName = @"东成";
 }
 
 @end

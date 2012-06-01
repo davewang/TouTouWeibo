@@ -9,12 +9,14 @@
 #import <UIKit/UIKit.h>
 #import "FoundResultViewController.h"
 
-@interface FinderInCityViewController : BaseUIViewController<UITableViewDelegate,UITableViewDataSource>{
+@interface FinderInCityViewController : BaseUIViewController<MKReverseGeocoderDelegate,CLLocationManagerDelegate,UITableViewDelegate,UITableViewDataSource>{
 
        UITableView *_tableView;
        NSArray *imageNames;
        NSMutableArray *_findFriendsVCList;
-     
+    CLLocationManager *locationManager;
+    NSString * proviceName;
+    NSString * cityName;
 }
 
 @property(retain,nonatomic) NSArray *_findFriendsVCList;

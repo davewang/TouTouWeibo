@@ -21,7 +21,7 @@
 @synthesize proviceName;
 @synthesize cityName;
 @synthesize cityId;
-
+@synthesize currentTotals;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -84,6 +84,12 @@
     if ([findType isEqualToString:@"city"]) {
         map.cityName = cityName;
         map.proviceName = proviceName;
+        map.totals= self.currentTotals;
+    }else if([findType isEqualToString:@"0"]||[findType isEqualToString:@"1"]||[findType isEqualToString:@"2"])
+    {
+        map.cityName = cityName;
+        map.proviceName = proviceName;
+        map.totals = self.currentTotals;
     }
     else{
         map.searchText=findValues;
@@ -146,6 +152,7 @@
     currentPageNo = 1;
     data = [[NSMutableArray alloc] initWithCapacity:2];
     [self showWait:YES];
+    self.currentTotals = @"0";
  
 }
 
@@ -187,6 +194,7 @@
         }else{
             [self.tableView.tableFooterView setHidden:NO];
         }
+        self.currentTotals = [NSString stringWithFormat:@"%d",friendList.pageInfo.totals] ;
         [data addObjectsFromArray:friendList.commonFriendList];
 
     }
@@ -197,6 +205,7 @@
         }else{
             [self.tableView.tableFooterView setHidden:NO];
         }
+        self.currentTotals = [NSString stringWithFormat:@"%d",friendList.pageInfo.totals] ;
         [data addObjectsFromArray:friendList.commonFriendList];
     }
     if ([[friendList.err description] isEqualToString:@"1"]) {
