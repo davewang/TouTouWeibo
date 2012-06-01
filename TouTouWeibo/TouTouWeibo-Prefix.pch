@@ -32,61 +32,65 @@
 #import "ContactListBean.h"
 #import "ContactBean.h"
 
-#define SERVER_URL @ "http://119.57.54.48/"
-#define LOGIN_URL @ "http://119.57.54.48/login.do?act=login"
-#define WEIBOLIST_URL @ "http://119.57.54.48/microblogging.do?act=phoneWeiboList"
-#define USER_URL @ "http://119.57.54.48/attention.do?act=phoneGetUserInfo"
+#define SERVER_URL @ "http://friend.etoutou.com/"
+#define LOGIN_URL @ "http://friend.etoutou.com/login.do?act=login"
+#define WEIBOLIST_URL @ "http://friend.etoutou.com/microblogging.do?act=phoneWeiboList"
+#define USER_URL @ "http://friend.etoutou.com/attention.do?act=phoneGetUserInfo"
 
-#define ATTENTION_URL @ "http://119.57.54.48/attention.do?act=phoneMyattention"
-#define FAN_URL @ "http://119.57.54.48/attention.do?act=phoneMyFan"
+#define ATTENTION_URL @ "http://friend.etoutou.com/attention.do?act=phoneMyattention"
+#define FAN_URL @ "http://friend.etoutou.com/attention.do?act=phoneMyFan"
 //#define WEIBO_URL @ "http://119.57.54.48microblogging.do?act=phoneReflush"
-#define WEIBO_URL @ "http://119.57.54.48/microblogging.do?act=getPersonalActionLogById"
+#define WEIBO_URL @ "http://friend.etoutou.com/microblogging.do?act=getPersonalActionLogById"
 
-#define REPLY_URL @ "http://119.57.54.48/microblogging.do?act=replyofuser"
+#define REPLY_URL @ "http://friend.etoutou.com/microblogging.do?act=replyofuser"
  
 
-#define LETTER_URL @ "http://119.57.54.48/microblogging.do?act=getMyLetterDetail"
-#define DIRECT_MESSAGE_URL @ "http://119.57.54.48/microblogging.do?act=addweibo"
-#define FRIENDLIST_URL @ "http://119.57.54.48/friend.do?act=phoneGetMyFriend"
+#define LETTER_URL @ "http://friend.etoutou.com/microblogging.do?act=getMyLetterDetail"
+#define DIRECT_MESSAGE_URL @ "http://friend.etoutou.com/microblogging.do?act=addweibo"
+#define FRIENDLIST_URL @ "http://friend.etoutou.com/friend.do?act=phoneGetMyFriend"
 
-#define GROUPLIST_URL @ "http://119.57.54.48/microblogging.do?act=phoneGetMyClass"
-#define SEND_WEIBO_URL @ "http://119.57.54.48/microblogging.do?act=savePhoneWeibo"   
+#define GROUPLIST_URL @ "http://friend.etoutou.com/microblogging.do?act=phoneGetMyClass"
+#define SEND_WEIBO_URL @ "http://friend.etoutou.com/microblogging.do?act=savePhoneWeibo"   
 
-#define REPLY_WEIBO_URL @ "http://119.57.54.48/microblogging.do?act=savePhoneReply"  
+#define REPLY_WEIBO_URL @ "http://friend.etoutou.com/microblogging.do?act=savePhoneReply"  
 
-#define DEL_WEIBO_URL @ "http://119.57.54.48/microblogging.do?act=phoneDel"  
-
-
-#define SHARE_WEIBO_URL @ "http://119.57.54.48/share.do?act=sendShareToAllFriend"  
+#define DEL_WEIBO_URL @ "http://friend.etoutou.com/microblogging.do?act=phoneDel"  
 
 
-#define UNFOLLOW_URL @ "http://119.57.54.48/friend.do?act=delattention"
+#define SHARE_WEIBO_URL @ "http://friend.etoutou.com/share.do?act=sendShareToAllFriend"  
+
+
+#define UNFOLLOW_URL @ "http://friend.etoutou.com/friend.do?act=delattention"
 //&F_uid=1
 
-#define FOLLOW_URL @ "http://119.57.54.48/friend.do?act=addattention"
+#define FOLLOW_URL @ "http://friend.etoutou.com/friend.do?act=addattention"
 //&F_uid=1
-#define UPDATAPASSWORD_URL @ "http://119.57.54.48/registeruser.do?act=updatePassword"
-#define REGISTER_USER_URL @ "http://119.57.54.48/registeruser.do?act=registerUser"
-#define REGISTER_SENDCODE_URL @ "http://119.57.54.48/registeruser.do?act=sendCode"
+#define UPDATAPASSWORD_URL @ "http://friend.etoutou.com/registeruser.do?act=updatePassword"
+#define REGISTER_USER_URL @ "http://friend.etoutou.com/registeruser.do?act=registerUser"
+#define REGISTER_SENDCODE_URL @ "http://friend.etoutou.com/registeruser.do?act=sendCode"
 
-#define UPDATA_USER_INFO_URL @ "http://119.57.54.48/microblogging.do?act=updateUserInfo"
+#define UPDATA_USER_INFO_URL @ "http://friend.etoutou.com/microblogging.do?act=updateUserInfo"
 
-#define CONTACTS_INFO_URL @ "http://119.57.54.48/friend.do?act=phoneContactsList"
-#define CONTACTS_MAP_INFO_URL @ "http://119.57.54.48/friend.do?act=phoneContactsMapByCity"
+#define CONTACTS_INFO_URL @ "http://friend.etoutou.com/friend.do?act=phoneContactsList"
+#define CONTACTS_MAP_INFO_URL @ "http://friend.etoutou.com/friend.do?act=phoneContactsMapByCity"
 
-#define CONTACTS_CARD_INFO_URL @ "http://119.57.54.48/friend.do?act=phoneUserCard"
+#define CONTACTS_CARD_INFO_URL @ "http://friend.etoutou.com/friend.do?act=phoneUserCard"
 
-#define SHAKE_LOCATION_INFO_URL @ "http://119.57.54.48/friend.do?act=phoneSavePosition"
-#define SHAKE_SHAKE_INFO_URL @ "http://119.57.54.48/friend.do?act=phoneCurrentShakingMenList"
-#define SHAKE_HISTORY_INFO_URL @ "http://119.57.54.48/friend.do?act=phoneBeforByShakingMenList"
-#define SHAKE_Delete_INFO_URL @ "http://119.57.54.48/friend.do?act=phoneBeforByShakingMenList"
+#define SHAKE_LOCATION_INFO_URL @ "http://friend.etoutou.com/friend.do?act=phoneSavePosition"
+#define SHAKE_SHAKE_INFO_URL @ "http://friend.etoutou.com/friend.do?act=phoneCurrentShakingMenList"
+#define SHAKE_HISTORY_INFO_URL @ "http://friend.etoutou.com/friend.do?act=phoneBeforByShakingMenList"
+#define SHAKE_Delete_INFO_URL @ "http://friend.etoutou.com/friend.do?act=phoneBeforByShakingMenList"
 
-#define CONTACTS_FRIENTTYPE_INFO_URL @ "http://119.57.54.48/friend.do?act=phoneCommonFindFriend"
-#define CONTACTS_FRIENTBYCITY_INFO_URL @ "http://119.57.54.48/friend.do?act=phoneCommonFindFriendByCity"
-#define CONTACTS_FRIENTMAPTYPE_INFO_URL @ "http://119.57.54.48/friend.do?act=phoneCommonFindMapByCity"
-#define CONTACTS_FRIENTLISTBYCITY_INFO_URL @ "http://119.57.54.48/friend.do?act=phoneFriendListByCity"
-#define SHAKE_LIST_INFO_URL @ "http://119.57.54.48/friend.do?act=phoneUserListSayHello"
+#define CONTACTS_FRIENTTYPE_INFO_URL @ "http://friend.etoutou.com/friend.do?act=phoneCommonFindFriend"
+#define CONTACTS_FRIENTBYCITY_INFO_URL @ "http://friend.etoutou.com/friend.do?act=phoneCommonFindFriendByCity"
+#define CONTACTS_FRIENTMAPTYPE_INFO_URL @ "http://friend.etoutou.com/friend.do?act=phoneCommonFindMapByCity"
+#define CONTACTS_FRIENTLISTBYCITY_INFO_URL @ "http://friend.etoutou.com/friend.do?act=phoneFriendListByCity"
+#define SHAKE_LIST_INFO_URL @ "http://friend.etoutou.com/friend.do?act=phoneUserListSayHello"
 
+
+#define MY_CLASS_LIST @ "http://friend.etoutou.com/friend.do?act=phoneMyClassList"
+
+#define MY_CLASS_MATE_LIST @ "http://friend.etoutou.com/friend.do?act=phoneMyClassmateList"
 //•	点击获取验证码URL：registeruser.do?act=sendCode
 //	点击注册URL：registeruser.do?act=registerUser
 
