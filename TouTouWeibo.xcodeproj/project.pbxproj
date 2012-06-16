@@ -13,7 +13,6 @@
 		55274941155FF0EA0034AE6B /* Draft.m in Sources */ = {isa = PBXBuildFile; fileRef = 55274940155FF0EA0034AE6B /* Draft.m */; };
 		55274946156009CC0034AE6B /* DianmingUIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55274944156009C90034AE6B /* DianmingUIViewController.m */; };
 		55274947156009CC0034AE6B /* DianmingUIViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55274945156009CA0034AE6B /* DianmingUIViewController.xib */; };
-		5527494E156052560034AE6B /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 5527494C156052540034AE6B /* Default.png */; };
 		55274951156052820034AE6B /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 55274950156052810034AE6B /* icon.png */; };
 		552749591560DCC20034AE6B /* AttentionsUIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 552749571560DCB20034AE6B /* AttentionsUIViewController.m */; };
 		5527495A1560DCC20034AE6B /* AttentionsUIViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 552749581560DCBB0034AE6B /* AttentionsUIViewController.xib */; };
@@ -954,6 +953,18 @@
 		55EC133A14FE7F0900EB13D5 /* WeiBoListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 55EC133914FE7F0900EB13D5 /* WeiBoListModel.m */; };
 		55EC133D14FE7F3400EB13D5 /* WeiBoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 55EC133C14FE7F3400EB13D5 /* WeiBoModel.m */; };
 		55F0C228156F3664002C7D0E /* ShakeHideImg_women@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 55F0C227156F3664002C7D0E /* ShakeHideImg_women@2x.png */; };
+		842793EB15726ACF0097A75C /* SayHelloViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 842793E915726ACF0097A75C /* SayHelloViewController.m */; };
+		842793EC15726ACF0097A75C /* SayHelloViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 842793EA15726ACF0097A75C /* SayHelloViewController.xib */; };
+		84853E901588CDD800B49D7C /* ClassInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 84853E8D1588CDD800B49D7C /* ClassInfo.m */; };
+		84853E911588CDD800B49D7C /* ClassInfoList.m in Sources */ = {isa = PBXBuildFile; fileRef = 84853E8F1588CDD800B49D7C /* ClassInfoList.m */; };
+		84853E991588CE7F00B49D7C /* AboutUIViewControlloer.m in Sources */ = {isa = PBXBuildFile; fileRef = 84853E941588CE7F00B49D7C /* AboutUIViewControlloer.m */; };
+		84853E9A1588CE7F00B49D7C /* AboutUIViewControlloer.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84853E951588CE7F00B49D7C /* AboutUIViewControlloer.xib */; };
+		84853E9B1588CE7F00B49D7C /* AccountManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84853E971588CE7F00B49D7C /* AccountManagerViewController.m */; };
+		84853E9C1588CE7F00B49D7C /* AccountManagerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84853E981588CE7F00B49D7C /* AccountManagerViewController.xib */; };
+		84853EA01588CE8F00B49D7C /* MyClassInfoListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84853E9E1588CE8F00B49D7C /* MyClassInfoListViewController.m */; };
+		84853EA11588CE8F00B49D7C /* MyClassInfoListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84853E9F1588CE8F00B49D7C /* MyClassInfoListViewController.xib */; };
+		84853EA31588D65E00B49D7C /* default.png in Resources */ = {isa = PBXBuildFile; fileRef = 84853EA21588D65E00B49D7C /* default.png */; };
+		84893B011588DCB40061ABFB /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 84893B001588DCB40061ABFB /* Default.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -968,7 +979,6 @@
 		55274943156009C80034AE6B /* DianmingUIViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DianmingUIViewController.h; sourceTree = "<group>"; };
 		55274944156009C90034AE6B /* DianmingUIViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DianmingUIViewController.m; sourceTree = "<group>"; };
 		55274945156009CA0034AE6B /* DianmingUIViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DianmingUIViewController.xib; sourceTree = "<group>"; };
-		5527494C156052540034AE6B /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		55274950156052810034AE6B /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		552749561560DCAD0034AE6B /* AttentionsUIViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AttentionsUIViewController.h; sourceTree = "<group>"; };
 		552749571560DCB20034AE6B /* AttentionsUIViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AttentionsUIViewController.m; sourceTree = "<group>"; };
@@ -2165,6 +2175,24 @@
 		55EC133B14FE7F3400EB13D5 /* WeiBoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiBoModel.h; sourceTree = "<group>"; };
 		55EC133C14FE7F3400EB13D5 /* WeiBoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeiBoModel.m; sourceTree = "<group>"; };
 		55F0C227156F3664002C7D0E /* ShakeHideImg_women@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ShakeHideImg_women@2x.png"; sourceTree = "<group>"; };
+		842793E815726ACF0097A75C /* SayHelloViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SayHelloViewController.h; sourceTree = "<group>"; };
+		842793E915726ACF0097A75C /* SayHelloViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SayHelloViewController.m; sourceTree = "<group>"; };
+		842793EA15726ACF0097A75C /* SayHelloViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SayHelloViewController.xib; sourceTree = "<group>"; };
+		84853E8C1588CDD800B49D7C /* ClassInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassInfo.h; sourceTree = "<group>"; };
+		84853E8D1588CDD800B49D7C /* ClassInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassInfo.m; sourceTree = "<group>"; };
+		84853E8E1588CDD800B49D7C /* ClassInfoList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassInfoList.h; sourceTree = "<group>"; };
+		84853E8F1588CDD800B49D7C /* ClassInfoList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassInfoList.m; sourceTree = "<group>"; };
+		84853E931588CE7F00B49D7C /* AboutUIViewControlloer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutUIViewControlloer.h; sourceTree = "<group>"; };
+		84853E941588CE7F00B49D7C /* AboutUIViewControlloer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutUIViewControlloer.m; sourceTree = "<group>"; };
+		84853E951588CE7F00B49D7C /* AboutUIViewControlloer.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutUIViewControlloer.xib; sourceTree = "<group>"; };
+		84853E961588CE7F00B49D7C /* AccountManagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountManagerViewController.h; sourceTree = "<group>"; };
+		84853E971588CE7F00B49D7C /* AccountManagerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountManagerViewController.m; sourceTree = "<group>"; };
+		84853E981588CE7F00B49D7C /* AccountManagerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountManagerViewController.xib; sourceTree = "<group>"; };
+		84853E9D1588CE8F00B49D7C /* MyClassInfoListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyClassInfoListViewController.h; sourceTree = "<group>"; };
+		84853E9E1588CE8F00B49D7C /* MyClassInfoListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyClassInfoListViewController.m; sourceTree = "<group>"; };
+		84853E9F1588CE8F00B49D7C /* MyClassInfoListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyClassInfoListViewController.xib; sourceTree = "<group>"; };
+		84853EA21588D65E00B49D7C /* default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = default.png; path = ../../../../../../Downloads/default.png; sourceTree = "<group>"; };
+		84893B001588DCB40061ABFB /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -2195,6 +2223,10 @@
 		55468D4D14FE1EDC00D75D7F /* data */ = {
 			isa = PBXGroup;
 			children = (
+				84853E8C1588CDD800B49D7C /* ClassInfo.h */,
+				84853E8D1588CDD800B49D7C /* ClassInfo.m */,
+				84853E8E1588CDD800B49D7C /* ClassInfoList.h */,
+				84853E8F1588CDD800B49D7C /* ClassInfoList.m */,
 				55C9E56F156E84F600819F93 /* AccountInfo.h */,
 				55C9E570156E84F600819F93 /* AccountInfo.m */,
 				5527493F155FF0EA0034AE6B /* Draft.h */,
@@ -2966,7 +2998,6 @@
 				55D148A315020FF200187A7F /* TweetImageloading.png */,
 				55B445E81548618700FD0BAF /* compose_checkbox_checked.png */,
 				55B445E91548618800FD0BAF /* compose_checkbox_checked@2x.png */,
-				5527494C156052540034AE6B /* Default.png */,
 				55B445EA1548618900FD0BAF /* compose_checkbox.png */,
 				55B445EB1548618A00FD0BAF /* compose_checkbox@2x.png */,
 				55B445E415485FF300FD0BAF /* miniretweet.png */,
@@ -3065,6 +3096,12 @@
 		55E4D2B614FD11C40025CDDD /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				84853E931588CE7F00B49D7C /* AboutUIViewControlloer.h */,
+				84853E941588CE7F00B49D7C /* AboutUIViewControlloer.m */,
+				84853E951588CE7F00B49D7C /* AboutUIViewControlloer.xib */,
+				84853E961588CE7F00B49D7C /* AccountManagerViewController.h */,
+				84853E971588CE7F00B49D7C /* AccountManagerViewController.m */,
+				84853E981588CE7F00B49D7C /* AccountManagerViewController.xib */,
 				55E58C13156C8BE00037EE7A /* FindFriends */,
 				55BE46A91547313800AC3CEF /* DirectMessage */,
 				55DC1908152C8345007D01E0 /* Compose */,
@@ -3137,6 +3174,8 @@
 		55E4D2BC14FD12940025CDDD /* images */ = {
 			isa = PBXGroup;
 			children = (
+				84893B001588DCB40061ABFB /* Default.png */,
+				84853EA21588D65E00B49D7C /* default.png */,
 				55BAEF9E15676C2100E68889 /* radio-check.png */,
 				55BAEF9F15676C2300E68889 /* radio-nocheck.png */,
 				55E4D3C514FD12940025CDDD /* about.png */,
@@ -3751,6 +3790,12 @@
 		55E58C13156C8BE00037EE7A /* FindFriends */ = {
 			isa = PBXGroup;
 			children = (
+				84853E9D1588CE8F00B49D7C /* MyClassInfoListViewController.h */,
+				84853E9E1588CE8F00B49D7C /* MyClassInfoListViewController.m */,
+				84853E9F1588CE8F00B49D7C /* MyClassInfoListViewController.xib */,
+				842793E815726ACF0097A75C /* SayHelloViewController.h */,
+				842793E915726ACF0097A75C /* SayHelloViewController.m */,
+				842793EA15726ACF0097A75C /* SayHelloViewController.xib */,
 				55F0C227156F3664002C7D0E /* ShakeHideImg_women@2x.png */,
 				55E58C49156C8CD30037EE7A /* AccelerometerHelper.h */,
 				55E58C4A156C8CD30037EE7A /* AccelerometerHelper.m */,
@@ -4484,7 +4529,6 @@
 				55D4011015599D5100901C2B /* sms-right.png in Resources */,
 				55D4011115599D5100901C2B /* sms-right@2x.png in Resources */,
 				55274947156009CC0034AE6B /* DianmingUIViewController.xib in Resources */,
-				5527494E156052560034AE6B /* Default.png in Resources */,
 				55274951156052820034AE6B /* icon.png in Resources */,
 				5527495A1560DCC20034AE6B /* AttentionsUIViewController.xib in Resources */,
 				5527495F1560DD150034AE6B /* FansUIViewController.xib in Resources */,
@@ -4522,6 +4566,12 @@
 				55F0C228156F3664002C7D0E /* ShakeHideImg_women@2x.png in Resources */,
 				55CD12181570C50000F77069 /* ContactRootUIViewController.xib in Resources */,
 				55CD121E1571C3BA00F77069 /* FindFriendByTypeViewController.xib in Resources */,
+				842793EC15726ACF0097A75C /* SayHelloViewController.xib in Resources */,
+				84853E9A1588CE7F00B49D7C /* AboutUIViewControlloer.xib in Resources */,
+				84853E9C1588CE7F00B49D7C /* AccountManagerViewController.xib in Resources */,
+				84853EA11588CE8F00B49D7C /* MyClassInfoListViewController.xib in Resources */,
+				84853EA31588D65E00B49D7C /* default.png in Resources */,
+				84893B011588DCB40061ABFB /* Default.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4784,6 +4834,12 @@
 				55C9E571156E84F600819F93 /* AccountInfo.m in Sources */,
 				55CD12171570C50000F77069 /* ContactRootUIViewController.m in Sources */,
 				55CD121D1571C3BA00F77069 /* FindFriendByTypeViewController.m in Sources */,
+				842793EB15726ACF0097A75C /* SayHelloViewController.m in Sources */,
+				84853E901588CDD800B49D7C /* ClassInfo.m in Sources */,
+				84853E911588CDD800B49D7C /* ClassInfoList.m in Sources */,
+				84853E991588CE7F00B49D7C /* AboutUIViewControlloer.m in Sources */,
+				84853E9B1588CE7F00B49D7C /* AccountManagerViewController.m in Sources */,
+				84853EA01588CE8F00B49D7C /* MyClassInfoListViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4863,14 +4919,15 @@
 		55E4D2B414FD08CA0025CDDD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: Jinsheng Wang (Q45SJR6CU8)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Jinsheng Wang (Q45SJR6CU8)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: 金胜 王 (69U8D4SK6N)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: 金胜 王 (69U8D4SK6N)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TouTouWeibo/TouTouWeibo-Prefix.pch";
 				INFOPLIST_FILE = "TouTouWeibo/TouTouWeibo-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "9F072A8C-C46D-4296-8FCD-21CF710FA2BD";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "9F072A8C-C46D-4296-8FCD-21CF710FA2BD";
+				PROVISIONING_PROFILE = "600113A1-A61E-4442-BB85-59B04E2B485A";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "600113A1-A61E-4442-BB85-59B04E2B485A";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -4878,14 +4935,15 @@
 		55E4D2B514FD08CA0025CDDD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: Jinsheng Wang (Q45SJR6CU8)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Jinsheng Wang (Q45SJR6CU8)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: 金胜 王 (69U8D4SK6N)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: 金胜 王 (69U8D4SK6N)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TouTouWeibo/TouTouWeibo-Prefix.pch";
 				INFOPLIST_FILE = "TouTouWeibo/TouTouWeibo-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "9F072A8C-C46D-4296-8FCD-21CF710FA2BD";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "9F072A8C-C46D-4296-8FCD-21CF710FA2BD";
+				PROVISIONING_PROFILE = "600113A1-A61E-4442-BB85-59B04E2B485A";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "600113A1-A61E-4442-BB85-59B04E2B485A";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
