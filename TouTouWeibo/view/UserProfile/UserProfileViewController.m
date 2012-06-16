@@ -148,9 +148,9 @@
 {
   UpdateUserProfileViewController *update =  [[UpdateUserProfileViewController alloc] init];
     update.account = user;
-    UINavigationController *nav =[[UINavigationController alloc] initWithRootViewController:update];
-    [self.navigationController presentModalViewController:nav  animated:YES];
-      
+//    UINavigationController *nav =[[UINavigationController alloc] initWithRootViewController:update];
+//    [self.navigationController presentModalViewController:nav  animated:YES];
+    [self.navigationController pushViewController:update animated:YES];      
 }
 -(void)followAction
 {

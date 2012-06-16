@@ -12,6 +12,7 @@
 #import "UserTimelineController.h"
 #import "FansUIViewController.h"
 #import "UpdateUserProfileViewController.h"
+
 @class UserTabBarController;
 
 @interface UserProfileViewController : BaseUIViewController<UserProfileDataSourceDelegate> {
