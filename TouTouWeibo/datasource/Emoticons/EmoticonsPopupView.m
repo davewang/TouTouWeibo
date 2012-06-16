@@ -17,10 +17,10 @@
 		self.backgroundColor = [UIColor colorWithWhite:0xE1/255.0F alpha:1];
 		
 		emoticonsScrollView = [[EmoticonsScrollView alloc]initWithFrame:CGRectZero];
-		emoticonsToolbarView = [[EmoticonsToolbarView alloc]initWithFrame:CGRectMake(0, 162, 320, 54)];
-		emoticonsToolbarView.toolbarDelegate = self;
+//		emoticonsToolbarView = [[EmoticonsToolbarView alloc]initWithFrame:CGRectMake(0, 162, 320, 54)];
+//		emoticonsToolbarView.toolbarDelegate = self;
 		[self addSubview:emoticonsScrollView];
-		[self addSubview:emoticonsToolbarView];
+//		[self addSubview:emoticonsToolbarView];
 		
 		currentEmoticonsType = EmoticonsTypeSinaWeibo;
 		//emoticonsScrollView.emoticonNodes = [EmojiDataSource getEmojiNodes:@"t1"];

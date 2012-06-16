@@ -19,8 +19,6 @@
 @synthesize _fromUserName,_fromSmallPath;
 - (NSString*)timestamp
 {
-    
-   
 	NSString *_timestamp;
     // Calculate distance time string
     //
