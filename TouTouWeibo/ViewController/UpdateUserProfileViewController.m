@@ -262,7 +262,8 @@ static UIImage *defaultProfileImage;
 }
 -(void)actionBack{
 
-    [self dismissModalViewControllerAnimated:YES];
+//    [self dismissModalViewControllerAnimated:YES];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 -(void)doSaveAction{
     Bean *b =[CommonUtils updateUserInforWith:currentInfomation andSex:[NSString stringWithFormat:@"%d",1+currentSexIndex]  andSprovince:currentoftenAddressOfProvinceId andScity:currentOftenAddressId andHeadImageData:currentHeadImage];

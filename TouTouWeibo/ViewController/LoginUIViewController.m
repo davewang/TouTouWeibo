@@ -108,8 +108,8 @@
     } else { // 如果登录失败 
        // [[AppDelegate getAppDelegate] signIn];
         
-        [CommonUtils ShowErroringInView:self.view WithErrorMessage:@"登录失败,原因未知。 "];
-        NSLog(@"login success");
+        [CommonUtils ShowErroringInView:self.view WithErrorMessage:@"登录失败,用户名或密码错误！"];
+        NSLog(@"login fail");
     }
     
     // 获得本地 cookies 集合（在第一次请求时服务器已返回 cookies，
