@@ -150,7 +150,11 @@
     [orderBtn addTarget:self action:@selector(orderBy) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem * orderBtnItem=[[UIBarButtonItem alloc] initWithCustomView:orderBtn];
     
-    self.navigationItem.rightBarButtonItems =[NSArray arrayWithObjects:  orderBtnItem,locatedBtnItem, nil];
+        if ([[[UIDevice currentDevice]systemVersion]floatValue]>5.0) {
+            self.navigationItem.rightBarButtonItems =[NSArray arrayWithObjects:  orderBtnItem,locatedBtnItem, nil];
+        }else{
+            self.navigationItem.rightBarButtonItem=locatedBtnItem;
+        }
     }else{
     
         [self leftBackBtnWithAction:@selector(actionBack)];
@@ -233,8 +237,10 @@
     ContactBean *bean = [mode==ContactListMode?data:searchResult objectAtIndex:indexPath.row];
 
     friendsDetail.friendId = bean.uid;
+    friendsDetail.isFriend=TRUE;
     self.hidesBottomBarWhenPushed =YES;
     [self.navigationController pushViewController:friendsDetail animated:YES];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES]; 
     //self.hidesBottomBarWhenPushed =NO;
     [friendsDetail release];
 	

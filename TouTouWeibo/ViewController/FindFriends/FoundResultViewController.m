@@ -272,6 +272,7 @@
     //ContactBean *bean = [data objectAtIndex:indexPath.row];
     ContactBean *bean = [ContactBean ContactBeanWithCommonFriendBean:[data objectAtIndex:indexPath.row]];
     detail.friendId = bean.uid;
+    detail.isFriend = FALSE;
     //FriendObject*frien=[friends objectAtIndex:indexPath.row];
     //取出 friends中的对象传递给detail列表用来显示 下面代码可以替换   
 //    FriendObject *frien=[[FriendObject alloc] init];

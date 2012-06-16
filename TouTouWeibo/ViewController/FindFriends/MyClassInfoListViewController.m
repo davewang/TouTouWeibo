@@ -7,6 +7,9 @@
 //
 
 #import "MyClassInfoListViewController.h"
+#import "ClassInfoList.h"
+#import "ClassInfo.h"
+#import "ContactsUIViewController.h"
 
 @implementation MyClassInfoListViewController
 
@@ -33,8 +36,10 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    [self setViewControllerTitle:@"我的班级"];
     [self leftBackBtnWithAction:@selector(actionBack)];
-    [CommonUtils loadClassInfoList:1];
+    ClassInfoList *classInfo=[CommonUtils loadClassInfoList:1];
+    data=classInfo.classList;
 }
 
 - (void)viewDidUnload
@@ -49,5 +54,37 @@
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [data count];
+} 
+// Row display. Implementers should *always* try to reuse cells by setting each cell's reuseIdentifier and querying for available reusable cells with dequeueReusableCellWithIdentifier:
+// Cell gets various attributes set automatically based on table (separators) and data source (accessory views, editing controls)
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    static NSString *kDisplayCell_ID = @"DisplayCellID";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kDisplayCell_ID];
+    if (cell == nil) 
+    {
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kDisplayCell_ID] autorelease];
+        cell.accessoryType=UITableViewCellAccessoryDetailDisclosureButton;
+    }
+    ClassInfo *info=[data objectAtIndex:indexPath.row];
+    cell.textLabel.text=info.className;
+    return cell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    ContactsUIViewController *contacts = [[ContactsUIViewController alloc ] init];
+    self.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:contacts animated:YES];
+    self.hidesBottomBarWhenPushed = NO;
+    [tableView deselectRowAtIndexPath:indexPath animated:YES]; 
+    [contacts release];  
+}
+
+
 
 @end

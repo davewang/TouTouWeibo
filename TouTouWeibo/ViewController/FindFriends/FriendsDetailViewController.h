@@ -19,6 +19,7 @@
     UIFont *detailCellFont;
 	UIFont *cellFont;
     AccountInfo *user;
+    Boolean *isFriend;
     UserProfileHeaderView *userProfileHeaderView;
 }
 @property(retain,nonatomic) FriendObject *friendObject;
@@ -27,4 +28,5 @@
 @property(retain,nonatomic) NSMutableArray *rowTitleList;
 
 @property(retain,nonatomic) NSString *friendId;
+@property(nonatomic) Boolean *isFriend;
 @end

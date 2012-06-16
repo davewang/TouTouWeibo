@@ -15,6 +15,7 @@
 @synthesize  _findFriendsVCList;
 @synthesize  rowTitleList;
 @synthesize friendId;
+@synthesize isFriend;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -83,12 +84,30 @@
  
     UIView *tfooterView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, detailTableView.frame.size.width, 58)];  
     tfooterView.autoresizingMask = UIViewAutoresizingFlexibleWidth; 
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [button setFrame:CGRectMake(130,2,80, 50)];  
-    [button setTitle:@"打招呼" forState:UIControlStateNormal];
-    [button.titleLabel setFont:[UIFont boldSystemFontOfSize:18]];
-    [button addTarget:self action:@selector(QmeBtnPressed) forControlEvents:UIControlEventTouchUpInside];
-    [tfooterView addSubview:button]; 
+    UIButton *button_0 = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [button_0 setFrame:CGRectMake(10,2,140, 50)];  
+    [button_0 setTitle:@"备注" forState:UIControlStateNormal];
+    [button_0.titleLabel setFont:[UIFont boldSystemFontOfSize:18]];
+    
+    UIButton *button_1 = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [button_1 setFrame:CGRectMake(160,2,150, 50)];  
+    [button_1 setTitle:@"删除" forState:UIControlStateNormal];
+    [button_1.titleLabel setFont:[UIFont boldSystemFontOfSize:18]];
+    
+    UIButton *button_2 = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [button_2 setFrame:CGRectMake(10,56,300, 50)];  
+    [button_2 setTitle:@"发消息" forState:UIControlStateNormal];
+    [button_2.titleLabel setFont:[UIFont boldSystemFontOfSize:18]];
+//    [button setFrame:CGRectMake(130,2,80, 50)];  
+//    [button setTitle:@"打招呼" forState:UIControlStateNormal];
+//    [button.titleLabel setFont:[UIFont boldSystemFontOfSize:18]];
+//    [button addTarget:self action:@selector(QmeBtnPressed) forControlEvents:UIControlEventTouchUpInside];
+    if (isFriend) {
+        [tfooterView addSubview:button_0]; 
+        [tfooterView addSubview:button_1]; 
+        [tfooterView addSubview:button_2]; 
+    }
+    
     self.detailTableView.tableFooterView = tfooterView;  
    // [button release];
     

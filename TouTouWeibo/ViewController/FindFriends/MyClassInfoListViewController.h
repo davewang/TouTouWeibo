@@ -10,6 +10,6 @@
 
 @interface MyClassInfoListViewController : BaseUIViewController
 {
-
+    NSArray *data;
 }
 @end
