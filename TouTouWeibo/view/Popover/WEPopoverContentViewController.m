@@ -33,7 +33,7 @@
 	self.view.backgroundColor = [UIColor clearColor];
     self.tableView.showsVerticalScrollIndicator =NO;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    data = [[NSArray alloc]   initWithObjects:@"全部",@"我的微博",@"班级", nil];
+    data = [[NSArray alloc]   initWithObjects:@"全部",@"微博",@"班级", nil];
        NSLog(@"data count--->%d",[data count]);
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
